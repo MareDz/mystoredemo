@@ -1,0 +1,18 @@
+{
+  "name": "mystoretestsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:chrome1": "npx playwright test tests/SmokeTests/VerifyCalculationAndDeleteItems.spec --config=essential.config.ts --project=Chromium",
+    "test:chrome2": "npx playwright test tests/SmokeTests/DeleteAdressAndBuyAccessorie.spec --config=essential.config.ts --project=Chromium",
+    "test:chrome3": "npx playwright test tests/SmokeTests/CreateUserAndUpdateUserData.spec --config=essential.config.ts --project=Chromium"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.31.2",
+    "prettier": "^2.8.4"
+  }
+}
