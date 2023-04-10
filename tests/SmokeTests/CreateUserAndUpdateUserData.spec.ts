@@ -27,7 +27,7 @@ import { getCredentialsFromAPI, validEmailMarko, validPasswordMarko } from '../.
       const credentials = await getCredentialsFromAPI()
       await loginPage.setUpStore(credentials.email, credentials.password)
       await page.pause()
-      
+      // POIIPOIPOI
     })
 
   
