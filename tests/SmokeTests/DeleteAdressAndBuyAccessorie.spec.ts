@@ -5,7 +5,7 @@ import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
 import { OrderPage } from '../../pages/OrderPage'
-import { invalidPassword, validEmailMarko, validPasswordMarko } from '../../utils/Strings'
+import { invalidPassword, standardUserEmail, standardUserPassword} from '../../utils/Strings'
 
     let basePage: BasePage
     let loginPage: LoginPage
@@ -24,8 +24,8 @@ import { invalidPassword, validEmailMarko, validPasswordMarko } from '../../util
     })
 
     test('DeleteAdressAndBuyAccessorie', async ({page}) => {
-      await loginPage.setUpStore(validEmailMarko, invalidPassword) // set up negative
-      await loginPage.loginToStore(validEmailMarko, validPasswordMarko)
+      await loginPage.setUpStore(standardUserEmail, invalidPassword) // set up negative
+      await loginPage.loginToStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
       await accessoriesPage.clickOnFoxNotebook()
@@ -34,7 +34,7 @@ import { invalidPassword, validEmailMarko, validPasswordMarko } from '../../util
       await productDetailsPage.clickShoppingCartPage()
       await shoppingCartPage.clickProceedToCheckoutButton()
       await orderPage.enterDataOrderPage()
-      await orderPage.clickOrderAndPay(validEmailMarko)
+      await orderPage.clickOrderAndPay(standardUserEmail)
     })
 
 

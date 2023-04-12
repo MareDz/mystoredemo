@@ -55,13 +55,13 @@ export class ShoppingCartPage extends BasePage {
     this.getValuesFromCheck()   
     this.quantityCheckElementFormat()
 
-    let lotPrice = await this.sumOfElemetsFormat(this.lbl_pricePerLot)
-    let quanityOfItems = await this.sumOfIntputsFormat(this.inp_quantity)
-    let balanceSheet =  (this.checkShipping + this.checkItemsTotal + this.checkTaxes)
+    let sumOfLotPrices = await this.sumOfElemetsFormat(this.lbl_pricePerLot)
+    let sumOfItemQuantity = await this.sumOfIntputsFormat(this.inp_quantity)
+    let referenceValues =  (this.checkShipping + this.checkItemsTotal + this.checkTaxes)
 
-    lotPrice == this.checkItemsTotal? console.log('Lot SUM = Items Total in Check'): console.log('ERROR');
-    quanityOfItems == this.checkQuantity? console.log('Quantity SUM = Quantity in Check'): console.log('ERROR');
-    balanceSheet == this.checkTotalWTaxes? console.log('Calculation is OK'): console.log('ERROR');
+    sumOfLotPrices == this.checkItemsTotal? console.log('Lot SUM = Items Total in Check'): console.log('ERROR');
+    sumOfItemQuantity == this.checkQuantity? console.log('Quantity SUM = Quantity in Check'): console.log('ERROR');
+    referenceValues == this.checkTotalWTaxes? console.log('Calculation is OK'): console.log('ERROR');
   }
   
   // Values from Check section, necessary for validation 

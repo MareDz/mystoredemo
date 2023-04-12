@@ -1,6 +1,6 @@
 import {expect, Locator, Page} from "@playwright/test"
 import { BasePage } from "./BasePage"
-import { adress, city, confimedOrderCaption, country, dummyText, state, validEmailMarko, zip } from "../utils/Strings"
+import { standardUserAdress, standardUserCity, confimedOrderCaption, standardUserCountry, dummyText, standardUserState, standardUserEmail, standardUserZIP } from "../utils/Strings"
 
 export class OrderPage extends BasePage {
 
@@ -64,7 +64,7 @@ export class OrderPage extends BasePage {
         await this.enterAdressDetails()
         break;
       default:
-        await this.clickOnAllElementsType2(this.btn_deleteAdress)
+        await this.clickOnAllElementsOneByOne(this.btn_deleteAdress)
         await this.enterAdressDetails()
         break;
     }
@@ -74,11 +74,11 @@ export class OrderPage extends BasePage {
 
   async enterAdressDetails(){ 
     console.log('enterAdressDetails()')
-    await this.inp_adress.fill(adress)
-    await this.inp_city.fill(city)
-    await this.inp_zipCode.fill(zip)
-    await this.drop_state.selectOption({label: state})
-    await this.drop_country.selectOption({label: country})
+    await this.inp_adress.fill(standardUserAdress)
+    await this.inp_city.fill(standardUserCity)
+    await this.inp_zipCode.fill(standardUserZIP)
+    await this.drop_state.selectOption({label: standardUserState})
+    await this.drop_country.selectOption({label: standardUserCountry})
 
     const checkIfChecked = await this.cb_sameAdress.isChecked()
     if(!checkIfChecked){

@@ -4,7 +4,7 @@ import { LoginPage } from '../../pages/LoginPage'
 import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
-import { validEmailMarko, validPasswordMarko } from '../../utils/Strings'
+import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
 
     let basePage: BasePage
     let loginPage: LoginPage
@@ -21,7 +21,7 @@ import { validEmailMarko, validPasswordMarko } from '../../utils/Strings'
     })
 
     test('VerifyCalculationAndDeleteItems', async ({page})=>{
-      await loginPage.setUpStore(validEmailMarko, validPasswordMarko) // set up positive
+      await loginPage.setUpStore(standardUserEmail, standardUserPassword) // set up positive
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
       await accessoriesPage.clickOnFoxNotebook()

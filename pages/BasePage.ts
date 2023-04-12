@@ -9,9 +9,19 @@ export class BasePage{
   readonly btn_accesories: Locator
   readonly btn_shoppingCart: Locator
   readonly btn_signIn: Locator
+  readonly btn_signOut: Locator
+  readonly btn_save: Locator
   readonly lbl_myStore: Locator
   readonly lbl_accessoriesCaption: Locator
   readonly lbl_shoppingCart: Locator
+  readonly inp_birthDate: Locator
+  readonly inp_email: Locator
+  readonly inp_password: Locator
+  readonly inp_firstName: Locator
+  readonly inp_lastName: Locator
+  readonly cb_termsAndConditions: Locator
+  readonly cb_newsLetter: Locator
+
   toNumber: number
 
   constructor(page: Page){
@@ -20,15 +30,29 @@ export class BasePage{
     this.btn_accesories = page.locator("//*[@id='top-menu']/li[2]")
     this.btn_signIn = page.locator("//*[@title='Log in to your customer account']")
     this.btn_shoppingCart = page.locator("#_desktop_cart")
+    this.btn_save = page.locator(" .form-footer button")
+    this.btn_signOut = page.locator(".logout")
     this.lbl_myStore = page.locator("[alt='teststore']")
     this.lbl_accessoriesCaption = page.locator(".h1")
     this.lbl_shoppingCart = page.locator(".h1")
+    this.inp_birthDate = page.locator("[name='birthday']")
+    this.inp_email = page.locator("section input[name='email']") 
+    this.inp_password = page.locator("[name='password']")
+    this.inp_firstName = page.locator("[name='firstname']")
+    this.inp_lastName = page.locator("[name='lastname']")
+    this.cb_termsAndConditions = page.locator("[name='psgdpr']")
+    this.cb_newsLetter = page.locator("[name='newsletter']")
   }
 
 async clickSignIn(){
   console.log('clickSignIn()')
   await this.btn_signIn.click()
  }
+
+async clickSignOut(){
+  console.log("clickSignOut()")
+  await this.btn_signOut.click()
+}
 
  async clickAccessoriesPage(){
   console.log('clickAccessoriesPage()')
@@ -47,8 +71,7 @@ async clickSignIn(){
   await this.page.goto(urlMyStore)
  }
 
-
-// Get ALL of elements with same locator and returns the SUM of them with 2 decimals
+// Get all desired String elements, format them to a Number, SUM them and round them to 2 decimal places
 async sumOfElemetsFormat(locator: Locator){
   console.log('sumOfElemetsFormat()')
   let priceArray: number[] = []
@@ -63,7 +86,7 @@ async sumOfElemetsFormat(locator: Locator){
   return sum
 }
 
-// Get ALL of INPUT elements with same locator and returns the SUM of them with 2 decimals
+// Get all desired INPUT elements, SUM them and round them to 2 decimal places 
 async sumOfIntputsFormat(locator: Locator){
   console.log('sumOfIntputsFormat()')
   let quantityArray: number[] = []
@@ -78,7 +101,7 @@ async sumOfIntputsFormat(locator: Locator){
   return sum
 }
 
-// Remove $ from price element and format it to Number
+// Remove $ sign from price element and format it to Number
 async priceElementFormat(locator: Locator){
   console.log('priceElementFormat()')
   let element = await locator.innerText()
@@ -86,7 +109,7 @@ async priceElementFormat(locator: Locator){
   return price
 }
 
-// Click on all elements with same locator
+// Click on all elements with same locator at the same time
 async clickAllElements(locator: Locator){
   console.log('clickAllElements()')
   let elements = locator
@@ -96,9 +119,9 @@ async clickAllElements(locator: Locator){
   }
 }
 
-// Click on all elements with same locator, slower method, better for some cases
-async clickOnAllElementsType2(locator: Locator){
-  console.log('clickOnAllElementsType2()')
+// Click on all elements with same locator one by one at the time
+async clickOnAllElementsOneByOne(locator: Locator){
+  console.log('clickOnAllElementsOneByOne()')
   let elements = locator
   let elementCount = await elements.count()
   while(elementCount>0){

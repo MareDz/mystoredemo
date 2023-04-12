@@ -1,43 +1,45 @@
-// Links
-export let urlMyStore = 'http://teststore.automationtesting.co.uk/'
-
-// GET from API
-export let dummyText = 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.'
-
-// GET from API
-export let birthDate = ''
-
-// GET from API
+// GET from API - 
 let emailFromAPI = ''
 let passwordFromAPI = ''
-export async function getCredentialsFromAPI() { // KESING 
-  if (!emailFromAPI || !passwordFromAPI) {
-    const response = await fetch('https://randomuser.me/api')
+let firstNameFromAPI = ''
+let lastNameFromAPI = ''
+export async function getCredentialsFromAPI() { 
+  if (!emailFromAPI || !passwordFromAPI || !firstNameFromAPI || !lastNameFromAPI) {
+    const response = await fetch('https://randomuser.me/api/?password=6-10')
     const data = await response.json()
     emailFromAPI = data.results[0].email
     passwordFromAPI = data.results[0].login.password
+    firstNameFromAPI = data.results[0].name.first
+    lastNameFromAPI = data.results[0].name.last
   }
   return {
     email: emailFromAPI,
     password: passwordFromAPI,
+    firstName: firstNameFromAPI,
+    lastName: lastNameFromAPI,
   }
 }
 
-// Credentials for admin user -> MARKO
-export let validEmailMarko = 'marko@mail.com'
-export let validPasswordMarko = 'mare123'
+export let dummyText = 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.'
+
+// Links
+export let urlMyStore = 'http://teststore.automationtesting.co.uk/'
+
+// Credentials for Admin/Standard user
+export let standardUserEmail = 'marko@mail.com'
+export let standardUserPassword = 'mare123'
 export let invalidPassword = 'invalidpassword'
-export let firstName = 'Marko'
-export let lastName = 'Dz'
-export let adress = 'Belgrade'
-export let city = 'Belgrade'
-export let state = 'Alaska'
-export let zip = '12312'
-export let country = 'United States'
-export let phone = '000111222'
+export let standardUserFirstName = 'Marko'
+export let standardUserLastName = 'Dz'
+export let standardUserAdress = 'Belgrade'
+export let standardUserCity = 'Belgrade'
+export let standardUserState = 'Alaska'
+export let standardUserZIP = '12312'
+export let standardUserCountry = 'United States'
+export let standardUserPhone = '000111222'
 
 // Captions
-export let alertFailed = 'Authentication failed.'
+export let failedLoginCaption = 'Authentication failed.'
 export let accessoriesCaption = 'Accessories'
 export let stationeryCaptoion = 'Stationery'
 export let homeAccessoriesCaption = 'Home Accessories'
