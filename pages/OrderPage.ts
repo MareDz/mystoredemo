@@ -50,20 +50,23 @@ export class OrderPage extends BasePage {
     this.drop_state = page.locator("[name='id_state']")
   }
 
-  async enterDataOrderPage(){
-    console.log('enterDataOrderPage()')
+  async fillInOrderPage(){
+    this.log('fillInOrderPage')
     const count = await this.btn_deleteAdress.count()
 
     // Delete button handle -> 3 Possible scenarios, every scenario depends on last user session in aplication
     switch (count){  
       case 0: 
+        this.log('Switch case 0')
         await this.enterAdressDetails()  
         break;
       case 1:
+        this.log('Switch case 1')
         await this.btn_deleteAdress.click()  
         await this.enterAdressDetails()
         break;
       default:
+        this.log('Switch case default')
         await this.clickOnAllElementsOneByOne(this.btn_deleteAdress)
         await this.enterAdressDetails()
         break;
@@ -73,7 +76,7 @@ export class OrderPage extends BasePage {
   }
 
   async enterAdressDetails(){ 
-    console.log('enterAdressDetails()')
+    this.log('enterAdressDetails')
     await this.inp_adress.fill(standardUserAdress)
     await this.inp_city.fill(standardUserCity)
     await this.inp_zipCode.fill(standardUserZIP)
@@ -82,38 +85,38 @@ export class OrderPage extends BasePage {
 
     const checkIfChecked = await this.cb_sameAdress.isChecked()
     if(!checkIfChecked){
-      console.log('Use this address for invoice - > Was not checked')
+      this.log('Use this address for invoice - > Was not checked')
       await this.cb_sameAdress.click()
     }
     else{
-      console.log('Use this address for invoice -> Was checked')
+      this.log('Use this address for invoice -> Was checked')
     }
     await this.btn_continueAdress.click()
   }
 
   async clickOrderAndPay(email: string){
-    console.log('clickOrderAndPay()')
+    this.log('clickOrderAndPay')
     await this.cb_termsOfService.click()
     await this.btn_order.click()
     await expect(this.lbl_confirmed).toContainText(confimedOrderCaption)
     await expect(this.lbl_confirmedEmail).toContainText(email)
     
     this.orderReference = (await this.lbl_orderReference.innerText()).slice(17)
-    console.log('Order Reference is: ' + this.orderReference)
+    console.log('Order Reference is: ' + this.orderReference)  // Log it this way
   }
   
   async payByWire(){
-    console.log('payByWire()')
+    this.log('payByWire')
     await this.radio_payWire.click()
   }
 
   async payByCheck(){
-    console.log('payByCheck()')
+    this.log('payByCheck')
     await this.radio_payCheck.click()
   }
 
   async shippingMethod(){
-    console.log('shippingMethod()')
+    this.log('shippingMethod')
     await this.inp_shipping.fill(dummyText) // I want API text here
     await this.btn_continueShipping.click()
   }

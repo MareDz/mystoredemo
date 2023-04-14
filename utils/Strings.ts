@@ -3,6 +3,7 @@ let emailFromAPI = ''
 let passwordFromAPI = ''
 let firstNameFromAPI = ''
 let lastNameFromAPI = ''
+
 export async function getCredentialsFromAPI() { 
   if (!emailFromAPI || !passwordFromAPI || !firstNameFromAPI || !lastNameFromAPI) {
     const response = await fetch('https://randomuser.me/api/?password=6-10')

@@ -25,7 +25,7 @@ export class YourAccountPage extends BasePage {
   }
 
   async editPersonalInfo(password: string){
-    console.log("editPersonalInfo()")
+    this.log('editPersonalInfo')
     await this.btn_information.click()
     await this.inp_password.fill(password)
     await this.cb_newsLetter.click()
@@ -34,12 +34,11 @@ export class YourAccountPage extends BasePage {
   }
 
   async verifyOrderReference(){
-    console.log('verifyOrderReference()')
+    this.log('verifyOrderReference')
     await this.openApp()
-    await this.btn_userAccount.click()
+    await this.clickUserAccount()
     await this.btn_orderHistory.click()
-    
-    console.log('Order Reference in check is: ' + await this.tr_orderReference.innerText())
+  //  console.log('Order Reference in check is: ' + await this.tr_orderReference.innerText()) // Log it this way
     await expect(this.tr_orderReference).toContainText(this.orderReference)
   }
 

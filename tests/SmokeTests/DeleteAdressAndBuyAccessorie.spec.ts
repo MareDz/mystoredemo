@@ -29,7 +29,7 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
     })
 
     test('DeleteAdressAndBuyAccessorie', async () => {
-      await loginPage.setUpStore(standardUserEmail, invalidPassword) // set up negative
+      await loginPage.setUpStore(standardUserEmail, invalidPassword)
       await loginPage.loginToStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
@@ -38,7 +38,7 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
       await productDetailsPage.clickContinueShoppingButton()
       await productDetailsPage.clickShoppingCartPage()
       await shoppingCartPage.clickProceedToCheckoutButton()
-      await orderPage.enterDataOrderPage()
+      await orderPage.fillInOrderPage()
       await orderPage.clickOrderAndPay(standardUserEmail)
       await yourAccountPage.verifyOrderReference()
     })

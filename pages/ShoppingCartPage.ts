@@ -39,33 +39,33 @@ export class ShoppingCartPage extends BasePage {
   }
 
   async clickProceedToCheckoutButton(){
-    console.log('clickProceedToCheckoutButton()')
+    this.log('clickProceedToCheckoutButton')
     await this.btn_proccedToCheckout.click()
   }
 
   async clickContinueShopping(){
-    console.log('clickContinueShopping()')
+    this.log('clickContinueShopping')
     await this.lbl_continueShopping.click()
   }
   
   // This is working but need to be refactored to look nicer
   async verifyCalculation(){
-    console.log('verifyCalculation()')
+    this.log('verifyCalculation')
     this.getValuesFromCheck()   
     this.quantityCheckElementFormat()
 
-    let sumOfLotPrices = await this.sumOfElemetsFormat(this.lbl_pricePerLot)
-    let sumOfItemQuantity = await this.sumOfIntputsFormat(this.inp_quantity)
+    let sumOfLotPrices = await this.sumOfElementsFormat(this.lbl_pricePerLot)
+    let sumOfItemQuantity = await this.sumOfInputsFormat(this.inp_quantity)
     let referenceValues =  (this.checkShipping + this.checkItemsTotal + this.checkTaxes)
 
-    sumOfLotPrices == this.checkItemsTotal? console.log('Lot SUM = Items Total in Check'): console.log('ERROR');
-    sumOfItemQuantity == this.checkQuantity? console.log('Quantity SUM = Quantity in Check'): console.log('ERROR');
-    referenceValues == this.checkTotalWTaxes? console.log('Calculation is OK'): console.log('ERROR');
+    sumOfLotPrices == this.checkItemsTotal? this.log('Lot SUM = Items Total in Check'): this.log('ERROR');
+    sumOfItemQuantity == this.checkQuantity? this.log('Quantity SUM = Quantity in Check'): this.log('ERROR');
+    referenceValues == this.checkTotalWTaxes? this.log('Calculation is OK'): this.log('ERROR');
   }
   
   // Values from Check section, necessary for validation 
   async getValuesFromCheck(){
-    console.log('getValuesFromCheck()')
+    this.log('getValuesFromCheck')
     this.checkShipping = await this.priceElementFormat(this.lbl_checkShipping)
     this.checkItemsTotal = await this.priceElementFormat(this.lbl_checkItemsTotal)
     this.checkTaxes = await this.priceElementFormat(this.lbl_checkTaxes)
@@ -74,14 +74,14 @@ export class ShoppingCartPage extends BasePage {
 
   // Quantity requiers different method of formating/slicing -> This is unique scenario, only used here
   async quantityCheckElementFormat(){
-    console.log('quantityCheckElementFormat()')
+    this.log('quantityCheckElementFormat')
     let quanty = await this.lbl_checkQuanty.innerText()
     this.checkQuantity = Number(quanty?.slice(0, -6))
-    console.log('Check quantity is: ' +this.checkQuantity)
+    console.log('Check quantity is: ' +this.checkQuantity) // Log it this way
   }
 
   async removeItemsFromCart(){
-    console.log('removeItemsFromCart')
+    this.log('removeItemsFromCart')
     this.clickAllElements(this.btn_deleteAllItems)
     await expect(this.lbl_noItems).toContainText(emptyCart)
     await expect(this.lbl_checkTotalWTaxes).toContainText('$0.00')

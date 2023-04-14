@@ -28,29 +28,27 @@ export class AccessoriesPage extends BasePage {
   }
 
   async clickStationery(){
-    console.log('clickStationery()')
+    this.log('clickStationery')
     await this.lbl_stationery.click()
     await expect(this.lbl_stationeryCaption).toContainText(stationeryCaptoion)
   }
 
   async clickHomeAccessories(){
-    console.log('clickHomeAccessories()')
+    this.log('clickHomeAccessories')
     await this.lbl_homeAccessories.click()
     await expect(this.lbl_stationeryCaption).toContainText(homeAccessoriesCaption)
   }
 
   async clickOnFoxNotebook(){
-    console.log('clickOnFoxNotebook()')
+    this.log('clickOnFoxNotebook')
     await this.img_foxNotebook.click()
     await expect(this.lbl_foxNotebookCaption).toContainText(foxNotebookCaption)
   }
 
   async clickOnMug(){
-    console.log('clickOnMug()')
+    this.log('clickOnMug')
     await this.img_adventureMug.click()
     await expect(this.lbl_adventureMugCaption).toContainText(adventureMugCaption)
   }
-
-
 
 }

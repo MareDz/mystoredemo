@@ -1,13 +1,14 @@
 import { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
-  timeout: 30000,     // number of mil. secs. for every test
+  timeout: 60000,     // number of mil. secs. for every test
   retries: 0,         // number of retries on failing test
   use: {
     //ignoreHTTPSErrors: true,     
     //viewport: {width 1280, height 720},   // dimensions of the browser windows
-    headless: true,       // headless-true we will se the browser; headless-false we are not going to see the browser
-    actionTimeout:50000,    // timeout for all pw functions e.g. click, type, wait for selector....
+    headless: false,       // headless-true we will se the browser; headless-false we are not going to see the browser
+    
+    actionTimeout: 80000,    // timeout for all pw functions e.g. click, type, wait for selector....
     video: "off",
     screenshot: "only-on-failure"
   },

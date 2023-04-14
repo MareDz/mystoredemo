@@ -22,14 +22,14 @@ export class LoginPage extends BasePage{
   }
   
   async setUpStore(email: string, password: string){
-    console.log('setUpStore()')
+    this.log('setUpStore')
     await this.openApp()
     await this.clickSignIn()
     await this.loginToStore(email, password)
   }
 
   async loginToStore(email: string, password: string){
-    console.log('loginToStore()')
+    this.log('loginToStore')
     await this.inp_email.fill(email)
     await this.inp_password.fill(password)
     await this.btn_show.click()
@@ -38,7 +38,7 @@ export class LoginPage extends BasePage{
   }
 
   async createUserAccountFromAPI(firstName: string, lastName: string, email: string, password: string){
-    console.log('createUserAccount()')
+    this.log('createUserAccountFromAPI')
     await this.openApp()
     await this.clickSignIn()
     await this.lbl_noAccount.click()
@@ -50,13 +50,13 @@ export class LoginPage extends BasePage{
     await this.btn_save.click()
   }
 
-  async clickShowHide(){
-    console.log('clickShowHide()')
+  async clickShowHideButton(){
+    this.log('clickShowHideButton')
     await this.btn_show.click()
   }
 
   async loginErrorMessage(){
-    console.log('loginErrorMessage()')
+    this.log('loginErrorMessage')
     await expect(this.lbl_alertFailed).toContainText(failedLoginCaption)
   }
 
