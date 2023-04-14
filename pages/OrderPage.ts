@@ -1,6 +1,6 @@
-import {expect, Locator, Page} from "@playwright/test"
+import {BrowserContext, expect, Locator, Page} from "@playwright/test"
 import { BasePage } from "./BasePage"
-import { standardUserAdress, standardUserCity, confimedOrderCaption, standardUserCountry, dummyText, standardUserState, standardUserEmail, standardUserZIP } from "../utils/Strings"
+import { standardUserAdress, standardUserCity, confimedOrderCaption, standardUserCountry, dummyText, standardUserState, standardUserZIP } from "../utils/Strings"
 
 export class OrderPage extends BasePage {
 
@@ -10,9 +10,9 @@ export class OrderPage extends BasePage {
   readonly btn_continueAdress: Locator  
   readonly btn_continueShipping: Locator
   readonly btn_order: Locator
+  readonly lbl_orderReference: Locator
   readonly lbl_confirmedEmail: Locator
   readonly lbl_confirmed: Locator
-  readonly lbl_wireCaption: Locator
   readonly inp_shipping: Locator
   readonly inp_adress: Locator
   readonly inp_city: Locator
@@ -34,8 +34,8 @@ export class OrderPage extends BasePage {
     this.btn_continueAdress = page.locator("[name='confirm-addresses']")
     this.btn_continueShipping = page.locator("[name='confirmDeliveryOption']")
     this.btn_order = page.locator("//*[@id='payment-confirmation']//button")
+    this.lbl_orderReference = page.locator("#order-details ul li:nth-of-type(1)")
     this.lbl_confirmed = page.locator('.h1')
-    this.lbl_wireCaption = page.locator("//*[id='payment-option-2-additional-information']/section/p")
     this.lbl_confirmedEmail = page.locator("#content-hook_order_confirmation p")
     this.inp_city = page.locator("[name='city']")
     this.inp_phone = page.locator("[name='phone']")
@@ -97,6 +97,9 @@ export class OrderPage extends BasePage {
     await this.btn_order.click()
     await expect(this.lbl_confirmed).toContainText(confimedOrderCaption)
     await expect(this.lbl_confirmedEmail).toContainText(email)
+    
+    this.orderReference = (await this.lbl_orderReference.innerText()).slice(17)
+    console.log('Order Reference is: ' + this.orderReference)
   }
   
   async payByWire(){

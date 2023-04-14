@@ -7,7 +7,6 @@ export class ShoppingCartPage extends BasePage {
   readonly page: Page
   readonly btn_proccedToCheckout: Locator
   readonly btn_deleteAllItems: Locator
-  readonly lbl_shoppingCart: Locator
   readonly lbl_noItems: Locator
   readonly lbl_pricePerLot: Locator
   readonly lbl_continueShopping: Locator

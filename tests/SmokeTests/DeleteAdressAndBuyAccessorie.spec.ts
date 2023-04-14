@@ -6,6 +6,7 @@ import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
 import { OrderPage } from '../../pages/OrderPage'
 import { invalidPassword, standardUserEmail, standardUserPassword} from '../../utils/Strings'
+import { YourAccountPage } from '../../pages/YourAccountPage'
 
     let basePage: BasePage
     let loginPage: LoginPage
@@ -13,17 +14,21 @@ import { invalidPassword, standardUserEmail, standardUserPassword} from '../../u
     let productDetailsPage: ProductDetailsPage
     let shoppingCartPage: ShoppingCartPage
     let orderPage: OrderPage
+    let yourAccountPage: YourAccountPage
 
-    test.beforeEach(async ({page}) =>{
+    test.beforeEach(async ({page, context}) =>{
       basePage = new BasePage(page)
       loginPage = new LoginPage(page)
       accessoriesPage = new AccessoriesPage(page)
       productDetailsPage = new ProductDetailsPage(page)
       shoppingCartPage = new ShoppingCartPage(page)
       orderPage = new OrderPage(page)
+
+      const newTab = await context.newPage()
+      yourAccountPage = new YourAccountPage(newTab)
     })
 
-    test('DeleteAdressAndBuyAccessorie', async ({page}) => {
+    test('DeleteAdressAndBuyAccessorie', async () => {
       await loginPage.setUpStore(standardUserEmail, invalidPassword) // set up negative
       await loginPage.loginToStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
@@ -35,6 +40,7 @@ import { invalidPassword, standardUserEmail, standardUserPassword} from '../../u
       await shoppingCartPage.clickProceedToCheckoutButton()
       await orderPage.enterDataOrderPage()
       await orderPage.clickOrderAndPay(standardUserEmail)
+      await yourAccountPage.verifyOrderReference()
     })
 
 

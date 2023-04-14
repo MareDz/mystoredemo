@@ -1,6 +1,6 @@
 import {Locator, Page, expect} from "@playwright/test"
 import { BasePage } from "../pages/BasePage"
-import { failedLoginCaption, invalidPassword, standardUserEmail, standardUserPassword } from "../utils/Strings"
+import { failedLoginCaption} from "../utils/Strings"
 
 export class LoginPage extends BasePage{
 

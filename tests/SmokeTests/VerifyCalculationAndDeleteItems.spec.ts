@@ -20,7 +20,7 @@ import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
       shoppingCartPage = new ShoppingCartPage(page)
     })
 
-    test('VerifyCalculationAndDeleteItems', async ({page})=>{
+    test('VerifyCalculationAndDeleteItems', async ()=>{
       await loginPage.setUpStore(standardUserEmail, standardUserPassword) // set up positive
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 

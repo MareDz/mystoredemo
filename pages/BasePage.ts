@@ -5,13 +5,12 @@ import { accessoriesCaption} from "../utils/Strings"
 export class BasePage{
 
   readonly page: Page
-  readonly btn_clothes: Locator
   readonly btn_accesories: Locator
   readonly btn_shoppingCart: Locator
   readonly btn_signIn: Locator
   readonly btn_signOut: Locator
   readonly btn_save: Locator
-  readonly lbl_myStore: Locator
+  readonly btn_userAccount: Locator
   readonly lbl_accessoriesCaption: Locator
   readonly lbl_shoppingCart: Locator
   readonly inp_birthDate: Locator
@@ -21,18 +20,18 @@ export class BasePage{
   readonly inp_lastName: Locator
   readonly cb_termsAndConditions: Locator
   readonly cb_newsLetter: Locator
-
   toNumber: number
+  orderReference = ''
+
 
   constructor(page: Page){
     this.page = page 
-    this.btn_clothes = page.locator("//*[@id='top-menu']/li[1]")
     this.btn_accesories = page.locator("//*[@id='top-menu']/li[2]")
     this.btn_signIn = page.locator("//*[@title='Log in to your customer account']")
     this.btn_shoppingCart = page.locator("#_desktop_cart")
     this.btn_save = page.locator(" .form-footer button")
     this.btn_signOut = page.locator(".logout")
-    this.lbl_myStore = page.locator("[alt='teststore']")
+    this.btn_userAccount = page.locator("[title='View my customer account']")
     this.lbl_accessoriesCaption = page.locator(".h1")
     this.lbl_shoppingCart = page.locator(".h1")
     this.inp_birthDate = page.locator("[name='birthday']")
@@ -70,6 +69,8 @@ async clickSignOut(){
   console.log('openApp()')
   await this.page.goto(urlMyStore)
  }
+
+
 
 // Get all desired String elements, format them to a Number, SUM them and round them to 2 decimal places
 async sumOfElemetsFormat(locator: Locator){
@@ -129,5 +130,6 @@ async clickOnAllElementsOneByOne(locator: Locator){
     await elementCount--
   }
 }
+
 
 }

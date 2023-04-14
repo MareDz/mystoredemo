@@ -6,8 +6,8 @@ const config: PlaywrightTestConfig = {
   use: {
     //ignoreHTTPSErrors: true,     
     //viewport: {width 1280, height 720},   // dimensions of the browser windows
-    headless: false,       // headless-true we will se the browser; headless-false we are not going to see the browser
-    actionTimeout:35000,    // timeout for all pw functions e.g. click, type, wait for selector....
+    headless: true,       // headless-true we will se the browser; headless-false we are not going to see the browser
+    actionTimeout:50000,    // timeout for all pw functions e.g. click, type, wait for selector....
     video: "off",
     screenshot: "only-on-failure"
   },

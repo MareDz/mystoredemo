@@ -1,6 +1,6 @@
 import {Locator, Page, expect} from "@playwright/test"
 import { BasePage } from "../pages/BasePage"
-import { accessoriesCaption, adventureMugCaption, foxNotebookCaption, homeAccessoriesCaption, stationeryCaptoion } from "../utils/Strings"
+import { adventureMugCaption, foxNotebookCaption, homeAccessoriesCaption, stationeryCaptoion } from "../utils/Strings"
 
 export class AccessoriesPage extends BasePage {
 
