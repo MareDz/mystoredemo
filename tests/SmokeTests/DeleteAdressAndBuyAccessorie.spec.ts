@@ -28,7 +28,7 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
       yourAccountPage = new YourAccountPage(newTab)
     })
 
-    test('DeleteAdressAndBuyAccessorie', async () => {
+    test('TS002 - Delete Adress and Buy Accessorie', async () => {
       await loginPage.setUpStore(standardUserEmail, invalidPassword)
       await loginPage.loginToStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()

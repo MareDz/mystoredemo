@@ -2,6 +2,7 @@ import {BrowserContext, expect, Locator, Page} from "@playwright/test"
 import { BasePage } from "./BasePage"
 import { standardUserAdress, standardUserCity, confimedOrderCaption, standardUserCountry, dummyText, standardUserState, standardUserZIP } from "../utils/Strings"
 
+
 export class OrderPage extends BasePage {
 
   readonly page: Page
@@ -24,7 +25,6 @@ export class OrderPage extends BasePage {
   readonly radio_payWire: Locator
   readonly drop_state: Locator
   readonly drop_country: Locator
-
 
   constructor(page: Page){
     super(page)
@@ -50,6 +50,7 @@ export class OrderPage extends BasePage {
     this.drop_state = page.locator("[name='id_state']")
   }
 
+
   async fillInOrderPage(){
     this.log('fillInOrderPage')
     const count = await this.btn_deleteAdress.count()
@@ -57,29 +58,33 @@ export class OrderPage extends BasePage {
     // Delete button handle -> 3 Possible scenarios, every scenario depends on last user session in aplication
     switch (count){  
       case 0: 
-        this.log('Switch case 0')
+        console.log('Switch case 0')
         await this.enterAdressDetails()  
         break;
       case 1:
-        this.log('Switch case 1')
+        console.log('Switch case 1')
         await this.btn_deleteAdress.click()  
         await this.enterAdressDetails()
         break;
       default:
-        this.log('Switch case default')
+        console.log('Switch case 2')
         await this.clickOnAllElementsOneByOne(this.btn_deleteAdress)
         await this.enterAdressDetails()
         break;
     }
+
     await this.shippingMethod()
     await this.payByWire()
   }
 
+  // Currently we are testing only with "Standard User", that's why values are pre-populated
   async enterAdressDetails(){ 
     this.log('enterAdressDetails')
+    
     await this.inp_adress.fill(standardUserAdress)
     await this.inp_city.fill(standardUserCity)
     await this.inp_zipCode.fill(standardUserZIP)
+
     await this.drop_state.selectOption({label: standardUserState})
     await this.drop_country.selectOption({label: standardUserCountry})
 
@@ -94,35 +99,37 @@ export class OrderPage extends BasePage {
     await this.btn_continueAdress.click()
   }
 
+
   async clickOrderAndPay(email: string){
     this.log('clickOrderAndPay')
     await this.cb_termsOfService.click()
     await this.btn_order.click()
+    
     await expect(this.lbl_confirmed).toContainText(confimedOrderCaption)
     await expect(this.lbl_confirmedEmail).toContainText(email)
     
     this.orderReference = (await this.lbl_orderReference.innerText()).slice(17)
-    console.log('Order Reference is: ' + this.orderReference)  // Log it this way
+    console.log('Order Reference is: ' + this.orderReference) 
   }
+
   
   async payByWire(){
     this.log('payByWire')
     await this.radio_payWire.click()
   }
 
+
   async payByCheck(){
     this.log('payByCheck')
     await this.radio_payCheck.click()
   }
+
 
   async shippingMethod(){
     this.log('shippingMethod')
     await this.inp_shipping.fill(dummyText) // I want API text here
     await this.btn_continueShipping.click()
   }
-
-
-
 
 }
 

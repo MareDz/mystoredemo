@@ -2,6 +2,7 @@ import {expect, Locator, Page} from "@playwright/test"
 import { BasePage } from "../pages/BasePage"
 import { shoppingCartCaption } from "../utils/Strings"
 
+
 export class ProductDetailsPage extends BasePage {
 
   readonly page: Page
@@ -29,6 +30,7 @@ export class ProductDetailsPage extends BasePage {
     this.inp_quantityInput = page.locator("#quantity_wanted")
     this.drop_paperType = page.locator("//*[@id='group_4']")
     }
+
    
     async setQuantityGUI(quantity: number){
       this.log('setQuantityGUI')
@@ -38,16 +40,19 @@ export class ProductDetailsPage extends BasePage {
     await this.btn_quantityMinus.click()
   }
 
+
     async setQuantityInp(quantity: string){
       this.log('setQuantityInp')
       await this.inp_quantityInput.clear()
       await this.inp_quantityInput.fill(quantity)
     }
 
+
     async setPaperType(paper: string){
        this.log('setPaperType')
        await this.drop_paperType.selectOption({label: paper}) 
     }
+
 
     async addNotebookToCartGUI(paper: string, quantity: number){
       this.log('addNotebookToCartGUI')
@@ -56,11 +61,13 @@ export class ProductDetailsPage extends BasePage {
       await this.btn_addToCart.click()
     }
 
+
     async addMugToCartInput(quantity: string){
       this.log('addMugToCartInput')
       await this.setQuantityInp(quantity)
       await this.btn_addToCart.click()
     }
+
 
     async clickProceedButton(){
       this.log('clickProceedButton')
@@ -68,16 +75,10 @@ export class ProductDetailsPage extends BasePage {
       await expect(this.lbl_shoppingCart).toContainText(shoppingCartCaption)
     }
 
+
     async clickContinueShoppingButton(){
       this.log('clickContinueShoppingButton')
       await this.btn_continueShopping.click()
     }
-
-    
-
-   
-
-
-
 
 }

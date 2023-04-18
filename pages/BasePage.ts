@@ -2,6 +2,7 @@ import {Locator, Page, expect} from '@playwright/test'
 import { shoppingCartCaption, urlMyStore } from '../utils/Strings'
 import {accessoriesCaption} from "../utils/Strings"
 
+
 export class BasePage{
 
   readonly page: Page
@@ -43,25 +44,31 @@ export class BasePage{
     this.cb_newsLetter = page.locator("[name='newsletter']")
   }
 
-async log(logText: string){
-   BasePage.index++
-   console.log('STEP [' + BasePage.index + ']    ' + logText + '()')
- }
+
+// Generate a step for every method/function log
+log(text: string){
+  BasePage.index++
+  console.log('STEP [' + BasePage.index + ']    ' + text + '()')
+}
+
 
 async clickSignIn(){
   this.log('clickSignIn')
   await this.btn_signIn.click()
  }
 
+
 async clickSignOut(){
   this.log('clickSignOut')
   await this.btn_signOut.click()
 }
 
+
 async clickUserAccount(){
   this.log('clickUserAccount')
   await this.btn_userAccount.click()
 }
+
 
  async clickAccessoriesPage(){
   this.log('clickAccessoriesPage')
@@ -69,11 +76,13 @@ async clickUserAccount(){
   await expect(this.lbl_accessoriesCaption).toContainText(accessoriesCaption)
  }
 
+
  async clickShoppingCartPage(){
   this.log('clickShoppingCartPage')
   await this.btn_shoppingCart.click()
   await expect(this.lbl_shoppingCart).toContainText(shoppingCartCaption)
  }
+
 
  async openApp(){
   this.log('openApp')
@@ -81,36 +90,45 @@ async clickUserAccount(){
  }
 
 
-
 // Get all desired String elements, format them to a Number, SUM them and round them to 2 decimal places
  async sumOfElementsFormat(locator: Locator){
   this.log('sumOfElementsFormat')
+
   let priceArray: number[] = []
   const count = await locator.count()
+  
   for(let i=0; i < count; i++){
     let element = await locator.nth(i).innerText()
     this.toNumber = Number(element?.slice(1))
     priceArray.push(this.toNumber)
   }
+
   const sum = Number(priceArray.reduce((a, b) => a + b, 0).toFixed(2))
   console.log('Sum Of Elements is: ' + sum)
+
   return sum
 }
+
 
 // Get all desired INPUT elements, SUM them and round them to 2 decimal places 
 async sumOfInputsFormat(locator: Locator){
   this.log('sumOfInputsFormat')
+
   let quantityArray: number[] = []
   const count = await locator.count()
+
   for(let i=0; i < count; i++){
     let element = await locator.nth(i).inputValue()
     this.toNumber = Number(element)
     quantityArray.push(this.toNumber);
   }
+
   const sum = Number(quantityArray.reduce((a, b) => a + b, 0).toFixed(2))
   console.log('Sum Of Input Elements is: ' + sum)
+
   return sum
 }
+
 
 // Remove $ sign from price element and format it to Number
 async priceElementFormat(locator: Locator){
@@ -120,27 +138,30 @@ async priceElementFormat(locator: Locator){
   return price
 }
 
+
 // Click on all elements with same locator at the same time
-async clickAllElements(locator: Locator){
-  this.log('clickAllElements')
+async clickOnAllElements(locator: Locator){
+  this.log('clickOnAllElements')
   let elements = locator
   let count = await elements.count()
+
   for (let i = 0; i < count; i++) {
     await elements.nth(i).click();
   }
 }
+
 
 // Click on all elements with same locator one by one at the time
 async clickOnAllElementsOneByOne(locator: Locator){
   this.log('clickOnAllElementsOneByOne')
   let elements = locator
   let elementCount = await elements.count()
+
   while(elementCount>0){
     await elements.first().click()
     await elementCount--
   }
 }
-
 
 
 

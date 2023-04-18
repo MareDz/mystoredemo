@@ -14,7 +14,7 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
       yourAccountPage = new YourAccountPage(page)
     })
 
-    test('CreateUserAndUpdateUserData', async () => {
+    test('TS003 - Create User and Update User Data', async () => {
       const credentials = await getCredentialsFromAPI()
       await loginPage.createUserAccountFromAPI(credentials.firstName, credentials.lastName, credentials.email, credentials.password)
       await loginPage.clickSignOut()
@@ -22,6 +22,8 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
       await loginPage.loginToStore(credentials.email, credentials.password)
       await yourAccountPage.editPersonalInfo(credentials.password)
     })
+
+    
 
   
 

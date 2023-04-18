@@ -20,7 +20,7 @@ import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
       shoppingCartPage = new ShoppingCartPage(page)
     })
 
-    test('VerifyCalculationAndDeleteItems', async ()=>{
+    test('TS001 - Verify Calculation and Delete Items', async ()=>{
       await loginPage.setUpStore(standardUserEmail, standardUserPassword) // set up positive
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
@@ -36,6 +36,8 @@ import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
       await shoppingCartPage.verifyCalculation()
       await shoppingCartPage.removeItemsFromCart()
     })
+
+    
 
 
 

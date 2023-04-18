@@ -1,6 +1,7 @@
 import {BrowserContext, Locator, Page, expect} from "@playwright/test"
 import { BasePage } from "./BasePage"
 
+
 export class YourAccountPage extends BasePage {
 
   readonly page: Page
@@ -24,6 +25,7 @@ export class YourAccountPage extends BasePage {
     this.tr_orderReference = page.locator("tbody > tr:nth-of-type(1) > th") // refactor it to look nicer
   }
 
+
   async editPersonalInfo(password: string){
     this.log('editPersonalInfo')
     await this.btn_information.click()
@@ -33,19 +35,13 @@ export class YourAccountPage extends BasePage {
     await this.btn_save.click()
   }
 
+
   async verifyOrderReference(){
     this.log('verifyOrderReference')
     await this.openApp()
     await this.clickUserAccount()
     await this.btn_orderHistory.click()
-  //  console.log('Order Reference in check is: ' + await this.tr_orderReference.innerText()) // Log it this way
     await expect(this.tr_orderReference).toContainText(this.orderReference)
   }
-
-
-
-
-
-
 
 }
