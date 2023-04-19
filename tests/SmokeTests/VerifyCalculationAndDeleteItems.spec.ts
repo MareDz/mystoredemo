@@ -1,10 +1,10 @@
-import {test, expect} from '@playwright/test'
+import {test} from '@playwright/test'
 import { BasePage} from '../../pages/BasePage'
 import { LoginPage } from '../../pages/LoginPage'
 import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
-import { validEmailMarko, validPasswordMarko } from '../../utils/Strings'
+import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
 
     let basePage: BasePage
     let loginPage: LoginPage
@@ -20,8 +20,8 @@ import { validEmailMarko, validPasswordMarko } from '../../utils/Strings'
       shoppingCartPage = new ShoppingCartPage(page)
     })
 
-    test('VerifyCalculationAndDeleteItems', async ({page})=>{
-      await loginPage.setUpStore(validEmailMarko, validPasswordMarko) // set up positive
+    test('TS001 - Verify Calculation and Delete Items', async ()=>{
+      await loginPage.setUpStore(standardUserEmail, standardUserPassword) // set up positive
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
       await accessoriesPage.clickOnFoxNotebook()
@@ -36,6 +36,8 @@ import { validEmailMarko, validPasswordMarko } from '../../utils/Strings'
       await shoppingCartPage.verifyCalculation()
       await shoppingCartPage.removeItemsFromCart()
     })
+
+    
 
 
 

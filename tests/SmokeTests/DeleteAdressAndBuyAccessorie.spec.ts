@@ -5,7 +5,8 @@ import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
 import { OrderPage } from '../../pages/OrderPage'
-import { invalidPassword, validEmailMarko, validPasswordMarko } from '../../utils/Strings'
+import { invalidPassword, standardUserEmail, standardUserPassword} from '../../utils/Strings'
+import { YourAccountPage } from '../../pages/YourAccountPage'
 
     let basePage: BasePage
     let loginPage: LoginPage
@@ -13,19 +14,23 @@ import { invalidPassword, validEmailMarko, validPasswordMarko } from '../../util
     let productDetailsPage: ProductDetailsPage
     let shoppingCartPage: ShoppingCartPage
     let orderPage: OrderPage
+    let yourAccountPage: YourAccountPage
 
-    test.beforeEach(async ({page}) =>{
+    test.beforeEach(async ({page, context}) =>{
       basePage = new BasePage(page)
       loginPage = new LoginPage(page)
       accessoriesPage = new AccessoriesPage(page)
       productDetailsPage = new ProductDetailsPage(page)
       shoppingCartPage = new ShoppingCartPage(page)
       orderPage = new OrderPage(page)
+
+      const newTab = await context.newPage()
+      yourAccountPage = new YourAccountPage(newTab)
     })
 
-    test('DeleteAdressAndBuyAccessorie', async ({page}) => {
-      await loginPage.setUpStore(validEmailMarko, invalidPassword) // set up negative
-      await loginPage.loginToStore(validEmailMarko, validPasswordMarko)
+    test('TS002 - Delete Adress and Buy Accessorie', async () => {
+      await loginPage.setUpStore(standardUserEmail, invalidPassword)
+      await loginPage.loginToStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
       await accessoriesPage.clickOnFoxNotebook()
@@ -33,8 +38,9 @@ import { invalidPassword, validEmailMarko, validPasswordMarko } from '../../util
       await productDetailsPage.clickContinueShoppingButton()
       await productDetailsPage.clickShoppingCartPage()
       await shoppingCartPage.clickProceedToCheckoutButton()
-      await orderPage.enterDataOrderPage()
-      await orderPage.clickOrderAndPay(validEmailMarko)
+      await orderPage.fillInOrderPage()
+      await orderPage.clickOrderAndPay(standardUserEmail)
+      await yourAccountPage.verifyOrderReference()
     })
 
 

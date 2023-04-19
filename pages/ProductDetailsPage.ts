@@ -2,6 +2,7 @@ import {expect, Locator, Page} from "@playwright/test"
 import { BasePage } from "../pages/BasePage"
 import { shoppingCartCaption } from "../utils/Strings"
 
+
 export class ProductDetailsPage extends BasePage {
 
   readonly page: Page
@@ -29,55 +30,55 @@ export class ProductDetailsPage extends BasePage {
     this.inp_quantityInput = page.locator("#quantity_wanted")
     this.drop_paperType = page.locator("//*[@id='group_4']")
     }
+
    
     async setQuantityGUI(quantity: number){
-        console.log('setQuantityGUI()')
+      this.log('setQuantityGUI')
         for (let i=0; i<quantity; i++ ){
           await this.btn_quantityPlus.click()
     }
     await this.btn_quantityMinus.click()
   }
 
+
     async setQuantityInp(quantity: string){
-      console.log('setQuantityInp()')
+      this.log('setQuantityInp')
       await this.inp_quantityInput.clear()
       await this.inp_quantityInput.fill(quantity)
     }
 
+
     async setPaperType(paper: string){
-      console.log('setPaperType()')
+       this.log('setPaperType')
        await this.drop_paperType.selectOption({label: paper}) 
     }
 
+
     async addNotebookToCartGUI(paper: string, quantity: number){
-      console.log('addNotebookToCartGUI()')
+      this.log('addNotebookToCartGUI')
       await this.setQuantityGUI(quantity)
       await this.setPaperType(paper)
       await this.btn_addToCart.click()
     }
 
+
     async addMugToCartInput(quantity: string){
-      console.log('aaddMugToCartInput()')
+      this.log('addMugToCartInput')
       await this.setQuantityInp(quantity)
       await this.btn_addToCart.click()
     }
 
+
     async clickProceedButton(){
-      console.log('clickProceedButton()')
+      this.log('clickProceedButton')
       await this.btn_proceedShopping.click()
       await expect(this.lbl_shoppingCart).toContainText(shoppingCartCaption)
     }
 
+
     async clickContinueShoppingButton(){
-      console.log('clickContinueShoppingButton()')
+      this.log('clickContinueShoppingButton')
       await this.btn_continueShopping.click()
     }
-
-    
-
-   
-
-
-
 
 }
