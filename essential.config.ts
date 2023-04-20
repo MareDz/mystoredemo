@@ -4,11 +4,11 @@ import { devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = { 
 
-  testDir: './SmokeTests',
+  testDir: './tests/SmokeTests',
   testMatch: [ 
-  'mystoredemo\tests\SmokeTests\CreateUserAndUpdateUserData.spec.ts',
-  'mystoredemo\tests\SmokeTests\DeleteAdressAndBuyAccessorie.spec.ts',
-  'mystoredemo\tests\SmokeTests\VerifyCalculationAndDeleteItems.spec.ts'
+  'SmokeTests/CreateUserAndUpdateUserData.spec.ts',
+  'SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts',
+  'SmokeTests/VerifyCalculationAndDeleteItems.spec.ts'
   ],
   fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
