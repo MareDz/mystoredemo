@@ -1,6 +1,4 @@
 import { PlaywrightTestConfig } from "@playwright/test";
-import { devices } from '@playwright/test';
-
 
 const config: PlaywrightTestConfig = { 
 
@@ -14,12 +12,12 @@ const config: PlaywrightTestConfig = {
   testMatch: ["**.test.ts"],   -> this will run all test in this
   */
   fullyParallel: !true,
-  retries: process.env.CI ? 1 : 0,
+  retries: process.env.CI ? 1 : 1,
   workers: process.env.CI ? 1 : 2,
   reporter: process.env.CI ? 'github' : 'list',
   timeout: 130000,     
   use: {
-    headless: process.env.CI ? true : false,       // change it to 'false' if you want to see the execution in browser
+    headless: process.env.CI ? true : true,       // change it to 'false' if you want to see the execution in browser
     actionTimeout: 80000,    
     video: "off",
     screenshot: process.env.CI ? "off" : "only-on-failure"

@@ -51,3 +51,15 @@ export let foxNotebookCaption = 'Mountain fox notebook'
 export let adventureMugCaption = 'Mug The adventure begins'
 export let emptyCart = 'There are no more items in your cart'
 
+// Titles
+export let accessoriesTitle = 'Accessories'
+export let stationeryTitle = 'Stationery'
+export let homeAccessoriesTitle = 'Home Accessories'
+export let foxNotebookTitle = 'Mountain fox notebook'
+export let mugTitle = 'Mug The adventure begins'
+export let cartTitle = 'Cart'
+
+
+
+
+
