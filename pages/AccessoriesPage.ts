@@ -1,6 +1,6 @@
 import {Locator, Page, expect} from "@playwright/test"
 import { BasePage } from "../pages/BasePage"
-import { adventureMugCaption, foxNotebookCaption, homeAccessoriesCaption, stationeryCaptoion } from "../utils/Strings"
+import { adventureMugCaption, foxNotebookCaption, homeAccessoriesCaption, homeAccessoriesTitle, stationeryCaptoion, stationeryTitle } from "../utils/Strings"
 
 
 export class AccessoriesPage extends BasePage {
@@ -32,6 +32,7 @@ export class AccessoriesPage extends BasePage {
   async clickStationery(){
     this.log('clickStationery')
     await this.lbl_stationery.click()
+    await expect(this.page).toHaveTitle(stationeryTitle)
     await expect(this.lbl_stationeryCaption).toContainText(stationeryCaptoion)
   }
 
@@ -39,6 +40,7 @@ export class AccessoriesPage extends BasePage {
   async clickHomeAccessories(){
     this.log('clickHomeAccessories')
     await this.lbl_homeAccessories.click()
+    await expect(this.page).toHaveTitle(homeAccessoriesTitle)
     await expect(this.lbl_stationeryCaption).toContainText(homeAccessoriesCaption)
   }
 
@@ -46,6 +48,7 @@ export class AccessoriesPage extends BasePage {
   async clickOnFoxNotebook(){
     this.log('clickOnFoxNotebook')
     await this.img_foxNotebook.click()
+    await expect(this.page).toHaveTitle(foxNotebookCaption)
     await expect(this.lbl_foxNotebookCaption).toContainText(foxNotebookCaption)
   }
   
@@ -53,6 +56,7 @@ export class AccessoriesPage extends BasePage {
   async clickOnMug(){
     this.log('clickOnMug')
     await this.img_adventureMug.click()
+    await expect(this.page).toHaveTitle(adventureMugCaption)
     await expect(this.lbl_adventureMugCaption).toContainText(adventureMugCaption)
   }
 

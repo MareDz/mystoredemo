@@ -1,5 +1,5 @@
 import {Locator, Page, expect} from '@playwright/test'
-import { shoppingCartCaption, urlMyStore } from '../utils/Strings'
+import { accessoriesTitle, cartTitle, shoppingCartCaption, urlMyStore } from '../utils/Strings'
 import {accessoriesCaption} from "../utils/Strings"
 
 
@@ -73,6 +73,7 @@ async clickUserAccount(){
  async clickAccessoriesPage(){
   this.log('clickAccessoriesPage')
   await this.btn_accesories.click()
+  await expect(this.page).toHaveTitle(accessoriesTitle)
   await expect(this.lbl_accessoriesCaption).toContainText(accessoriesCaption)
  }
 
@@ -80,6 +81,7 @@ async clickUserAccount(){
  async clickShoppingCartPage(){
   this.log('clickShoppingCartPage')
   await this.btn_shoppingCart.click()
+  await expect(this.page).toHaveTitle(cartTitle)
   await expect(this.lbl_shoppingCart).toContainText(shoppingCartCaption)
  }
 
