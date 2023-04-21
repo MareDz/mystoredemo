@@ -16,10 +16,7 @@ const config: PlaywrightTestConfig = {
   fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: [["dot"], ["json", {outputFile: "test-results.json"}]],
-  // reporter: process.env.CI ? [["junit", {
-  //   outputFile: "results.xml"
-  // }]] : "list",
+  reporter: process.env.CI ? 'github' : 'list',
   timeout: 130000,     
   use: {
     headless: process.env.CI ? true : false,       // change it to 'false' if you want to see the execution in browser
