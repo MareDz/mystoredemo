@@ -127,7 +127,7 @@ export class OrderPage extends BasePage {
 
   async shippingMethod(){
     this.log('shippingMethod')
-    await this.inp_shipping.fill(dummyText) // I want API text here
+    await this.inp_shipping.fill(dummyText)
     await this.btn_continueShipping.click()
   }
 

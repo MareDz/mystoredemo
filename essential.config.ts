@@ -3,28 +3,25 @@ import { PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = { 
 
   testDir: './tests/SmokeTests',
-  testMatch: [ 
-  'SmokeTests/CreateUserAndUpdateUserData.spec.ts',
-  'SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts',
-  'SmokeTests/VerifyCalculationAndDeleteItems.spec.ts'
-  ],
-  /*
-  testMatch: ["**.test.ts"],   -> this will run all test in this
-  */
+  testMatch: ["**.test.ts"],  // this is only for demo 
   fullyParallel: !true,
+
   retries: process.env.CI ? 1 : 1,
   workers: process.env.CI ? 1 : 2,
   reporter: process.env.CI ? 'github' : 'list',
   timeout: 130000,     
+
   use: {
-    headless: process.env.CI ? true : true,       // change it to 'false' if you want to see the execution in browser
+    headless: process.env.CI ? true : false,       // change it to 'false' if you want to see the execution in browser
     actionTimeout: 80000,    
     video: "off",
     screenshot: process.env.CI ? "off" : "only-on-failure"
   },
+
   expect: {
-    timeout: 15000,
+    timeout: 20000,
   },
+
   projects: [
     {
       name: "Chromium",
@@ -40,4 +37,5 @@ const config: PlaywrightTestConfig = {
     }
   ]
 }
+
 export default config;
