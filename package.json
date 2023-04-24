@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npx playwright install",
     "test:fail": "npx playwright test tests/SmokeTests/ReportTest.spec --config=essential.config.ts --project=Chromium",
     "test:smoke": "npx playwright test tests/SmokeTests/ --config=essential.config.ts --project=Chromium",
     "test:ts001": "npx playwright test tests/SmokeTests/VerifyCalculationAndDeleteItems.spec --config=essential.config.ts --project=Chromium",
