@@ -1,2 +1,4 @@
 node_modules/
-ReportTest.spec.ts
+ReportTest.spec.ts/
+report/
+test-tesults
