@@ -20,6 +20,13 @@ jobs:
         run: npx playwright install --with-deps
 
         #it would be better to link a whole folder with test for daily schedule, but this will be just for demo
-      - name: Run Playwright tests
+      - name: Run VerifyCalculationAndDeleteItems
         run: npx playwright test tests/SmokeTests/VerifyCalculationAndDeleteItems.spec
+
+      - name: Run DeleteAdressAndBuyAccessorie
         run: npx playwright test tests/SmokeTests/DeleteAdressAndBuyAccessorie.spec
+
+
+
+
+
