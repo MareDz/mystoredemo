@@ -1,7 +1,7 @@
-name: Playwright Tests
+name: Playwright Schedules Tests
 on:
   schedule:
-    - cron: '55 * * * *'  # end of every day
+    - cron: '0 0 * * *'
     
 jobs:
   test:
