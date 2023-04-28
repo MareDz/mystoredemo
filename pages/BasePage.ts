@@ -60,7 +60,7 @@ async clickSignIn(){
 
 async clickSignOut(){
   this.log('clickSignOut')
-  await this.btn_signOut.click()
+  await this.btn_signOut.click({timeout: 10000})
 }
 
 
@@ -68,7 +68,6 @@ async clickUserAccount(){
   this.log('clickUserAccount')
   await this.btn_userAccount.click()
 }
-
 
  async clickAccessoriesPage(){
   this.log('clickAccessoriesPage')

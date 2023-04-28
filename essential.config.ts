@@ -13,7 +13,7 @@ const config: PlaywrightTestConfig = {
     headless: process.env.CI ? true : false,       // change it to 'false' if you want to see live test process in browser
     actionTimeout: 80000,    
     video: "off",
-    screenshot: process.env.CI ? "off" : "only-on-failure"
+    screenshot: process.env.CI ? "only-on-failure" : "only-on-failure"
   },
   expect: {
     timeout: 20000,

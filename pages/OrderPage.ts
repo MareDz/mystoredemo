@@ -14,6 +14,7 @@ export class OrderPage extends BasePage {
   readonly lbl_orderReference: Locator
   readonly lbl_confirmedEmail: Locator
   readonly lbl_confirmed: Locator
+  readonly lbl_shippingSectionTitle: Locator
   readonly inp_shipping: Locator
   readonly inp_adress: Locator
   readonly inp_city: Locator
@@ -37,6 +38,7 @@ export class OrderPage extends BasePage {
     this.lbl_orderReference = page.locator("#order-details ul li:nth-of-type(1)")
     this.lbl_confirmed = page.locator('.h1')
     this.lbl_confirmedEmail = page.locator("#content-hook_order_confirmation p")
+    this.lbl_shippingSectionTitle = page.locator('#checkout-delivery-step .step-title')
     this.inp_city = page.locator("[name='city']")
     this.inp_phone = page.locator("[name='phone']")
     this.inp_zipCode = page.locator("[name='postcode']")
@@ -124,11 +126,21 @@ export class OrderPage extends BasePage {
     await this.radio_payCheck.click()
   }
 
-
+  
+// This section had some loading issues on the front
   async shippingMethod(){
     this.log('shippingMethod')
-    await this.inp_shipping.fill(dummyText)
-    await this.btn_continueShipping.click()
+    if (await this.lbl_shippingSectionTitle.isEnabled()) {
+      await this.inp_shipping.clear()
+      await this.inp_shipping.fill(dummyText)
+      await this.btn_continueShipping.click()
+    } 
+    else {
+      console.log('Page Reloaded')
+      await this.page.reload()
+      await this.inp_shipping.fill(dummyText, {timeout: 10000})
+      await this.btn_continueShipping.click()
+    }
   }
 
 }
