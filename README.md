@@ -43,4 +43,4 @@
 - File *‘schedule.yml’* is configuration file for scheduling jobs. By this config. jobs are going to be triggered every day at midnight. *‘TS003 - Create User and Update User Data’* is left out of that file on purpose because I don’t want to fill limited storage on demo site database. 
 - All ‘workflows runs’ are available in ‘Actions’ section on my GitHub *‘https://github.com/MareDz/mystoredemo/actions'*
 
-- To run desired test, please check *'scripts'* in *'package.json'* file, (e.g. to run ts:001 execute following comand *'npm run test:ts001'*
+- To run desired test, please check *'scripts'* in *'package.json'* file, (e.g. to run ts:001 execute following comand *'npm run test:ts001'* )
