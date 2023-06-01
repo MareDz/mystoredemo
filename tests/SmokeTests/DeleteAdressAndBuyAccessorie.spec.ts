@@ -7,6 +7,7 @@ import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
 import { OrderPage } from '../../pages/OrderPage'
 import { invalidPassword, standardUserEmail, standardUserPassword} from '../../utils/Strings'
 import { YourAccountPage } from '../../pages/YourAccountPage'
+import { getCommentsFromAPI } from '../../utils/API'
 
     let basePage: BasePage
     let loginPage: LoginPage
@@ -29,7 +30,9 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
     })
 
     test('TS002 - Delete Adress and Buy Accessorie', async () => {
-      await loginPage.setUpStore(standardUserEmail, invalidPassword)
+      const apiData = await getCommentsFromAPI()
+
+      await loginPage.setUpStore(standardUserEmail, invalidPassword) // set up negative
       await loginPage.loginToStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
@@ -38,7 +41,7 @@ import { YourAccountPage } from '../../pages/YourAccountPage'
       await productDetailsPage.clickContinueShoppingButton()
       await productDetailsPage.clickShoppingCartPage()
       await shoppingCartPage.clickProceedToCheckoutButton()
-      await orderPage.fillInOrderPage()
+      await orderPage.fillInOrderPage(apiData.comment)
       await orderPage.clickOrderAndPay(standardUserEmail)
       await yourAccountPage.verifyOrderReference()
     })

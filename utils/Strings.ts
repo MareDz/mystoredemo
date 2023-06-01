@@ -1,25 +1,3 @@
-// GET from API - 
-let emailFromAPI = ''
-let passwordFromAPI = ''
-let firstNameFromAPI = ''
-let lastNameFromAPI = ''
-
-export async function getCredentialsFromAPI() { 
-  if (!emailFromAPI || !passwordFromAPI || !firstNameFromAPI || !lastNameFromAPI) {
-    const response = await fetch('https://randomuser.me/api/?password=6-10')
-    const data = await response.json()
-    emailFromAPI = data.results[0].email
-    passwordFromAPI = data.results[0].login.password
-    firstNameFromAPI = data.results[0].name.first
-    lastNameFromAPI = data.results[0].name.last
-  }
-  return {
-    email: emailFromAPI,
-    password: passwordFromAPI,
-    firstName: firstNameFromAPI,
-    lastName: lastNameFromAPI,
-  }
-}
 
 // Lorem Ipsum
 export let dummyText = 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.'
@@ -49,15 +27,22 @@ export let shoppingCartCaption = 'Shopping Cart'
 export let confimedOrderCaption = 'Your order is confirmed'
 export let foxNotebookCaption = 'Mountain fox notebook'
 export let adventureMugCaption = 'Mug The adventure begins'
+export let customizableMugCaption = 'Customizable mug'
 export let emptyCart = 'There are no more items in your cart'
+export let searchCaption = 'Search results'
+export let availabilityCaption = "There are not enough products in stock"
+export let availabilityCartCaption = "You cannot proceed with your order until the quantity is adjusted."
 
 // Titles
+export let myAccountTitle = 'My account'
 export let accessoriesTitle = 'Accessories'
 export let stationeryTitle = 'Stationery'
 export let homeAccessoriesTitle = 'Home Accessories'
 export let foxNotebookTitle = 'Mountain fox notebook'
-export let mugTitle = 'Mug The adventure begins'
+export let adventureMugTitle = 'Mug The adventure begins'
+export let customizableMugTitle = 'Customizable mug'
 export let cartTitle = 'Cart'
+export let seatchTitle = 'Search'
 
 
 

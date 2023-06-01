@@ -1,8 +1,8 @@
 import { test } from '@playwright/test'
 import { BasePage} from '../../pages/BasePage'
 import { LoginPage } from '../../pages/LoginPage'
-import { getCredentialsFromAPI} from '../../utils/Strings'
 import { YourAccountPage } from '../../pages/YourAccountPage'
+import { getCredentialsFromAPI } from '../../utils/API'
 
     let basePage: BasePage
     let loginPage: LoginPage

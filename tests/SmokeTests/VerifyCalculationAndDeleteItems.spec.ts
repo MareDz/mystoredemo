@@ -30,7 +30,7 @@ import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
       await shoppingCartPage.clickContinueShopping()
       await shoppingCartPage.clickAccessoriesPage()
       await accessoriesPage.clickHomeAccessories()
-      await accessoriesPage.clickOnMug()
+      await accessoriesPage.clickOnAdventureMug()
       await productDetailsPage.addMugToCartInput('2')
       await productDetailsPage.clickProceedButton()
       await shoppingCartPage.verifyCalculation()
