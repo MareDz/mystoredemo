@@ -1,4 +1,4 @@
-import {BrowserContext, expect, Locator, Page} from "@playwright/test"
+import { expect, Locator, Page } from "@playwright/test"
 import { BasePage } from "./BasePage"
 import { standardUserAdress, standardUserCity, confimedOrderCaption, standardUserCountry, dummyText, standardUserState, standardUserZIP } from "../utils/Strings"
 
@@ -53,31 +53,32 @@ export class OrderPage extends BasePage {
   }
 
 
-  async fillInOrderPage(){
+  async fillInOrderPage(comment: string){
     this.log('fillInOrderPage')
     const count = await this.btn_deleteAdress.count()
 
     // Delete button handle -> 3 Possible scenarios, every scenario depends on last user session in aplication
     switch (count){  
-      case 0: 
-        console.log('Switch case 0')
+      case 0:  // 1 address is displayed
+        console.log('Switch case 0') 
         await this.enterAdressDetails()  
         break;
-      case 1:
+      case 1:  // 2 addresses are displayed
         console.log('Switch case 1')
-        await this.btn_deleteAdress.click()  
+        await this.btn_deleteAdress.click() 
         await this.enterAdressDetails()
         break;
-      default:
-        console.log('Switch case 2')
+      default:  // More than 2 addresses are displayed
+        console.log('Switch case 2')  
         await this.clickOnAllElementsOneByOne(this.btn_deleteAdress)
         await this.enterAdressDetails()
         break;
     }
 
-    await this.shippingMethod()
+    await this.shippingMethod(comment)
     await this.payByWire()
   }
+
 
   // Currently we are testing only with "Standard User", that's why values are pre-populated
   async enterAdressDetails(){ 
@@ -128,11 +129,13 @@ export class OrderPage extends BasePage {
 
   
 // This section had some loading issues on the front
-  async shippingMethod(){
+  async shippingMethod(comment: string){
     this.log('shippingMethod')
+    await this.page.waitForTimeout(2000) // This API is a bit slower
+
     if (await this.lbl_shippingSectionTitle.isEnabled()) {
       await this.inp_shipping.clear()
-      await this.inp_shipping.fill(dummyText)
+      await this.inp_shipping.fill(comment)
       await this.btn_continueShipping.click()
     } 
     else {

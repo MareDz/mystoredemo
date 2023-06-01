@@ -25,6 +25,18 @@ jobs:
 
       - name: Run DeleteAdressAndBuyAccessorie
         run: npx playwright test tests/SmokeTests/DeleteAdressAndBuyAccessorie.spec
+        
+      - name: Run ProductCustomization
+        run: npx playwright test tests/SmokeTests/ProductCustomization.spec
+
+      - name: Run PreviewAndZoom
+        run: npx playwright test tests/SmokeTests/PreviewAndZoom.spec
+
+      - name: Run NumberOfDisplayedArticles
+        run: npx playwright test tests/SmokeTests/NumberOfDisplayedArticles.spec
+
+      - name: Run NotEnoughProductsInStock
+        run: npx playwright test tests/SmokeTests/NotEnoughProductsInStock.spec 
 
 
 
