@@ -38,7 +38,7 @@ export class BasePage{
   constructor(page: Page){
     this.page = page 
     this.btn_accesories = page.locator("//*[@id='top-menu']/li[2]")
-    this.btn_homeAccessoriesHover = page.locator("//*[@id='category-6']/div[1]/ul/li[2]/a")
+    this.btn_homeAccessoriesHover = page.locator("//*[@id='category-6']/div[1]/ul/li[2]/a") ////a[normalize-space()='Home Accessories' and @class='dropdown-item dropdown-submenu']
     this.btn_signIn = page.locator("//*[@title='Log in to your customer account']")
     this.btn_shoppingCart = page.locator("#_desktop_cart")
     this.btn_save = page.locator(" .form-footer button")
@@ -125,7 +125,7 @@ async clickUserAccount(){
  
 
 // Regular searchbar
- async searchForProduct(name){
+ async searchForProduct(name: string){
   this.log('searchForProduct')
   await this.inp_search.clear()
   await this.inp_search.click()
@@ -213,7 +213,7 @@ async clickOnAllElementsOneByOne(locator: Locator){
 
   while(elementCount>0){
     await locator.first().click()
-    await elementCount--
+     elementCount--
   }
 }
 
