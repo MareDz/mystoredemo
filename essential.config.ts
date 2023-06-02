@@ -9,8 +9,9 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : 2,
   reporter: process.env.CI ? 'github' : [ ['json', { outputFile: 'report/results.xml' }] ],
   timeout: 130000,     
+  reportSlowTests: null,
   use: {
-    headless: process.env.CI ? true : true,   // change it to 'false' if you want to see live test process in browser
+    headless: process.env.CI ? true : false,   // change it to 'false' if you want to see live test process in browser
     actionTimeout: 80000,    
     video: "off",
     screenshot: process.env.CI ? "only-on-failure" : "only-on-failure"
