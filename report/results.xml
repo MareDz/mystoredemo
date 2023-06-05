@@ -1,0 +1,184 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/marko/Dev/mystoredemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "name": "Chromium",
+        "testDir": "/Users/marko/Dev/mystoredemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**.spec.ts"
+        ],
+        "timeout": 130000
+      },
+      {
+        "outputDir": "/Users/marko/Dev/mystoredemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "name": "Firefox",
+        "testDir": "/Users/marko/Dev/mystoredemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**.spec.ts"
+        ],
+        "timeout": 130000
+      },
+      {
+        "outputDir": "/Users/marko/Dev/mystoredemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "name": "Webkit",
+        "testDir": "/Users/marko/Dev/mystoredemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**.spec.ts"
+        ],
+        "timeout": 130000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report/results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": null,
+    "configFile": "/Users/marko/Dev/mystoredemo/essential.config.ts",
+    "rootDir": "/Users/marko/Dev/mystoredemo/tests",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.31.2",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts",
+      "file": "SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TS002 - Delete Adress and Buy Accessorie",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 130000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectName": "Chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 18181,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "STEP [1]    setUpStore()\n"
+                    },
+                    {
+                      "text": "STEP [2]    openApp()\n"
+                    },
+                    {
+                      "text": "STEP [3]    clickSignIn()\n"
+                    },
+                    {
+                      "text": "STEP [4]    loginToStore()\n"
+                    },
+                    {
+                      "text": "STEP [5]    clickAccessoriesPage()\n"
+                    },
+                    {
+                      "text": "STEP [6]    clickStationery()\n"
+                    },
+                    {
+                      "text": "STEP [7]    clickOnFoxNotebook()\n"
+                    },
+                    {
+                      "text": "STEP [8]    addNotebookToCartGUI()\n"
+                    },
+                    {
+                      "text": "STEP [9]    increaseQuantityGUI()\n"
+                    },
+                    {
+                      "text": "STEP [10]    setPaperType()\n"
+                    },
+                    {
+                      "text": "STEP [11]    clickContinueShoppingButton()\n"
+                    },
+                    {
+                      "text": "STEP [12]    clickShoppingCartPage()\n"
+                    },
+                    {
+                      "text": "STEP [13]    clickProceedToCheckoutButton()\n"
+                    },
+                    {
+                      "text": "STEP [14]    fillInOrderPage()\n"
+                    },
+                    {
+                      "text": "Switch case 1\n"
+                    },
+                    {
+                      "text": "STEP [15]    enterAdressDetails()\n"
+                    },
+                    {
+                      "text": "STEP [16]    Use this address for invoice -> Was checked()\n"
+                    },
+                    {
+                      "text": "STEP [17]    shippingMethod()\n"
+                    },
+                    {
+                      "text": "STEP [18]    payByWire()\n"
+                    },
+                    {
+                      "text": "STEP [19]    clickOrderAndPay()\n"
+                    },
+                    {
+                      "text": "Order Reference is: PHSPDRKFH\n"
+                    },
+                    {
+                      "text": "STEP [20]    verifyOrderReference()\n"
+                    },
+                    {
+                      "text": "STEP [21]    openApp()\n"
+                    },
+                    {
+                      "text": "STEP [22]    clickUserAccount()\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-06-05T13:04:35.031Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "558e175d78ac2a4ad008-35f785b7c4d771505a57",
+          "file": "SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts",
+          "line": 32,
+          "column": 9
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
