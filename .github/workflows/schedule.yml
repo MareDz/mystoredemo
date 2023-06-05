@@ -38,6 +38,9 @@ jobs:
       - name: Run NotEnoughProductsInStock
         run: npx playwright test tests/SmokeTests/NotEnoughProductsInStock.spec 
 
+      - name: Run LoginNegative
+        run: npx playwright test tests/SmokeTests/LoginNegative.spec
+
 
 
 

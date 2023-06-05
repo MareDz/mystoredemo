@@ -22,8 +22,7 @@ import { invalidPassword, standardUserEmail, standardUserPassword } from '../../
     })
 
     test('TS005 - Not enough products in stock', async () => {
-        await loginPage.setUpStore(standardUserEmail, invalidPassword) // set up negative
-        await loginPage.loginToStore(standardUserEmail, standardUserPassword)
+        await loginPage.setUpStore(standardUserEmail, standardUserPassword)
         await loginPage.searchForProduct('Fox')
         await accessoriesPage.clickOnFoxNotebook()
         await productDetailsPage.checkInStockQuantity()

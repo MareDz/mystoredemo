@@ -21,7 +21,7 @@ import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
     })
 
     test('TS001 - Verify Calculation and Delete Items', async ()=>{
-      await loginPage.setUpStore(standardUserEmail, standardUserPassword) // set up positive
+      await loginPage.setUpStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
       await accessoriesPage.clickOnFoxNotebook()
