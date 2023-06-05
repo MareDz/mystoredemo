@@ -21,25 +21,25 @@ jobs:
 
         #it would be better to link a whole folder with test for daily schedule, but this will be just for demo
       - name: Run VerifyCalculationAndDeleteItems
-        run: npx playwright test tests/SmokeTests/VerifyCalculationAndDeleteItems.spec
+        run: npm run test:ts001
 
       - name: Run DeleteAdressAndBuyAccessorie
-        run: npx playwright test tests/SmokeTests/DeleteAdressAndBuyAccessorie.spec
-        
-      - name: Run ProductCustomization
-        run: npx playwright test tests/SmokeTests/ProductCustomization.spec
+        run: npm run test:ts002
 
       - name: Run PreviewAndZoom
-        run: npx playwright test tests/SmokeTests/PreviewAndZoom.spec
-
-      - name: Run NumberOfDisplayedArticles
-        run: npx playwright test tests/SmokeTests/NumberOfDisplayedArticles.spec
+        run: npm run test:ts004
 
       - name: Run NotEnoughProductsInStock
-        run: npx playwright test tests/SmokeTests/NotEnoughProductsInStock.spec 
+        run: npm run test:ts005
+
+      - name: Run NumberOfDisplayedArticles
+        run: npm run test:ts006
+
+      - name: Run ProductCustomization
+        run: npm run test:ts007
 
       - name: Run LoginNegative
-        run: npx playwright test tests/SmokeTests/LoginNegative.spec
+        run: npm run test:ts008
 
 
 

@@ -26,4 +26,7 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Run Playwright tests and generate test report
+        run: npx playwright test --reporter=list        
+
         
