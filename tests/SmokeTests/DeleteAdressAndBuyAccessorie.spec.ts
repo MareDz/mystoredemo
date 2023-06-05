@@ -32,8 +32,7 @@ import { getCommentsFromAPI } from '../../utils/API'
     test('TS002 - Delete Adress and Buy Accessorie', async () => {
       const apiData = await getCommentsFromAPI()
 
-      await loginPage.setUpStore(standardUserEmail, invalidPassword) // set up negative
-      await loginPage.loginToStore(standardUserEmail, standardUserPassword)
+      await loginPage.setUpStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
       await accessoriesPage.clickStationery() 
       await accessoriesPage.clickOnFoxNotebook()
