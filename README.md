@@ -2,7 +2,7 @@
 
 - [My Store](http://teststore.automationtesting.co.uk/) is demo application and this project is used only for demonstration purpose.
 - This project contains automation tests for [My Store](http://teststore.automationtesting.co.uk/) application.
-- Automation will be done in TypeScript with Playwright.
+- Automation is done in TypeScript with Playwright.
 
 - Focus of this project is to demonstrate my ***coding style, usage of POM, OOP, API, CI/CD, Static Methods, Variable Naming Conventions and Organization of Test Cases***.
 
@@ -29,7 +29,7 @@
 # General 
 
 - Configuration for CI and for Local are located in [essential.config.ts](https://github.com/MareDz/mystoredemo/blob/main/essential.config.ts) file
-- If you want to see the test execution in your local browser just change 'headless' argument to 'false'
+- To see the test execution in your local browser just change 'headless' argument to 'false'
 
 - All tests for execution are located at [tests/SmokeTests](https://github.com/MareDz/mystoredemo/tree/main/tests/SmokeTests)
 
