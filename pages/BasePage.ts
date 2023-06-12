@@ -41,7 +41,7 @@ export class BasePage{
     this.btn_homeAccessoriesHover = page.locator("//*[@id='category-6']/div[1]/ul/li[2]/a") ////a[normalize-space()='Home Accessories' and @class='dropdown-item dropdown-submenu']
     this.btn_signIn = page.locator("//*[@title='Log in to your customer account']")
     this.btn_shoppingCart = page.locator("#_desktop_cart")
-    this.btn_save = page.locator(" .form-footer button")
+    this.btn_save = page.locator(".form-footer button")
     this.btn_signOut = page.locator(".logout")
     this.btn_userAccount = page.locator("[title='View my customer account']")
     this.btn_zoomIn = page.locator(".zoom-in")
@@ -201,7 +201,7 @@ async clickOnAllElements(locator: Locator){
   let count = await locator.count()
 
   for (let i = 0; i < count; i++) {
-    await locator.nth(i).click();
+    await locator.nth(i).click()
   }
 }
 

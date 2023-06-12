@@ -55,12 +55,6 @@ export class LoginPage extends BasePage{
   }
 
 
-  async clickShowHideButton(){
-    this.log('clickShowHideButton')
-    await this.btn_show.click()
-  }
-  
-
   async loginErrorMessage(){
     this.log('loginErrorMessage')
     await expect(this.lbl_alertFailed).toContainText(failedLoginCaption)

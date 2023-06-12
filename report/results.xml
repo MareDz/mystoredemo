@@ -68,13 +68,13 @@
   },
   "suites": [
     {
-      "title": "SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts",
-      "file": "SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts",
+      "title": "SmokeTests/PreviewAndZoom.spec.ts",
+      "file": "SmokeTests/PreviewAndZoom.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "TS002 - Delete Adress and Buy Accessorie",
+          "title": "TS004 - Preview and Zoom an Item",
           "ok": true,
           "tags": [],
           "tests": [
@@ -87,7 +87,7 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 18181,
+                  "duration": 6969,
                   "errors": [],
                   "stdout": [
                     {
@@ -103,78 +103,30 @@
                       "text": "STEP [4]    loginToStore()\n"
                     },
                     {
-                      "text": "STEP [5]    clickAccessoriesPage()\n"
+                      "text": "STEP [5]    clickHomeAccessoriesHover()\n"
                     },
                     {
-                      "text": "STEP [6]    clickStationery()\n"
+                      "text": "STEP [6]    previwMug()\n"
                     },
                     {
-                      "text": "STEP [7]    clickOnFoxNotebook()\n"
+                      "text": "STEP [7]    clickOnAdventureMug()\n"
                     },
                     {
-                      "text": "STEP [8]    addNotebookToCartGUI()\n"
-                    },
-                    {
-                      "text": "STEP [9]    increaseQuantityGUI()\n"
-                    },
-                    {
-                      "text": "STEP [10]    setPaperType()\n"
-                    },
-                    {
-                      "text": "STEP [11]    clickContinueShoppingButton()\n"
-                    },
-                    {
-                      "text": "STEP [12]    clickShoppingCartPage()\n"
-                    },
-                    {
-                      "text": "STEP [13]    clickProceedToCheckoutButton()\n"
-                    },
-                    {
-                      "text": "STEP [14]    fillInOrderPage()\n"
-                    },
-                    {
-                      "text": "Switch case 1\n"
-                    },
-                    {
-                      "text": "STEP [15]    enterAdressDetails()\n"
-                    },
-                    {
-                      "text": "STEP [16]    Use this address for invoice -> Was checked()\n"
-                    },
-                    {
-                      "text": "STEP [17]    shippingMethod()\n"
-                    },
-                    {
-                      "text": "STEP [18]    payByWire()\n"
-                    },
-                    {
-                      "text": "STEP [19]    clickOrderAndPay()\n"
-                    },
-                    {
-                      "text": "Order Reference is: PHSPDRKFH\n"
-                    },
-                    {
-                      "text": "STEP [20]    verifyOrderReference()\n"
-                    },
-                    {
-                      "text": "STEP [21]    openApp()\n"
-                    },
-                    {
-                      "text": "STEP [22]    clickUserAccount()\n"
+                      "text": "STEP [8]    zoomTheProduct()\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-06-05T13:04:35.031Z",
+                  "startTime": "2023-06-05T13:43:11.959Z",
                   "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "558e175d78ac2a4ad008-35f785b7c4d771505a57",
-          "file": "SmokeTests/DeleteAdressAndBuyAccessorie.spec.ts",
-          "line": 32,
+          "id": "9e01a8f320ce055e1fd6-824777e232fd69613ad7",
+          "file": "SmokeTests/PreviewAndZoom.spec.ts",
+          "line": 21,
           "column": 9
         }
       ]
