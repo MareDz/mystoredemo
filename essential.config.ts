@@ -11,7 +11,7 @@ const config: PlaywrightTestConfig = {
   timeout: 130000,     
   reportSlowTests: null,
   use: {
-    headless: process.env.CI ? true : false,   
+    headless: process.env.CI ? true : true,   
     actionTimeout: 80000,    
     video: "off",
     screenshot: process.env.CI ? "only-on-failure" : "only-on-failure"

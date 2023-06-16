@@ -92,8 +92,8 @@ export class ShoppingCartPage extends BasePage {
   // Quantity requiers different method of formating/slicing -> This is unique scenario, only used here
   async quantityCheckElementFormat(){
     this.log('quantityCheckElementFormat')
-    let quanty = await this.lbl_checkQuanty.innerText()
-    this.checkQuantity = Number(quanty?.slice(0, -6))
+    let quantity = await this.lbl_checkQuanty.innerText()
+    this.checkQuantity = Number(quantity?.slice(0, -6))
     console.log('Check quantity is: ' +this.checkQuantity) 
   }
 

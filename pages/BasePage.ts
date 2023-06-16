@@ -83,6 +83,7 @@ async clickSignIn(){
 
 async clickSignOut(){
   this.log('clickSignOut')
+  await this.page.waitForTimeout(2500) // unstable page
   await this.btn_signOut.click({timeout: 10000})
 }
 
