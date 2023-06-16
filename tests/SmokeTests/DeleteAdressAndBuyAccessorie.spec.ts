@@ -5,7 +5,7 @@ import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
 import { OrderPage } from '../../pages/OrderPage'
-import { invalidPassword, standardUserEmail, standardUserPassword} from '../../utils/Strings'
+import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
 import { YourAccountPage } from '../../pages/YourAccountPage'
 import { getCommentsFromAPI } from '../../utils/API'
 
