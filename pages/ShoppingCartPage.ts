@@ -46,7 +46,6 @@ export class ShoppingCartPage extends BasePage {
     this.lbl_productCustomization = page.locator("[data-toggle='modal']")
     this.lbl_yourCustomization = page.locator("//*[@class='col-sm-9 col-xs-8 value']")
     this.inp_quantity = page.locator("[name='product-quantity-spin']") // Parent class
-
   }
 
 

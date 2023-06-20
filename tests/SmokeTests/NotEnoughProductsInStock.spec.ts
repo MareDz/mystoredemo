@@ -4,7 +4,7 @@ import { LoginPage } from '../../pages/LoginPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
-import { invalidPassword, standardUserEmail, standardUserPassword } from '../../utils/Strings'
+import { standardUserEmail, standardUserPassword } from '../../utils/Strings'
 
     let basePage: BasePage
     let loginPage: LoginPage

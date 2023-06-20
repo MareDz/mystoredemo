@@ -13,9 +13,10 @@
     "test:ts005": "npx playwright test tests/SmokeTests/NotEnoughProductsInStock.spec --config=essential.config.ts --project=Chromium",
     "test:ts006": "npx playwright test tests/SmokeTests/NumberOfDisplayedArticles.spec --config=essential.config.ts --project=Chromium",
     "test:ts007": "npx playwright test tests/SmokeTests/ProductCustomization.spec --config=essential.config.ts --project=Chromium",
-    "test:ts008": "npx playwright test tests/SmokeTests/LoginNegative.spec --config=essential.config.ts --project=Chromium"
+    "test:ts008": "npx playwright test tests/SmokeTests/LoginNegative.spec --config=essential.config.ts --project=Chromium",
 
 
+    "test:Lets-test": "npx playwright test tests/RegressionTests/ --config=essential.config.ts --project=Chromium" 
   },
   "author": "",
   "license": "ISC",

@@ -5,7 +5,7 @@ import { AccessoriesPage } from '../../pages/AccessoriesPage'
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage'
 import { ShoppingCartPage } from '../../pages/ShoppingCartPage'
 import { OrderPage } from '../../pages/OrderPage'
-import { standardUserEmail, standardUserPassword} from '../../utils/Strings'
+import { standardUserEmail, standardUserPassword } from '../../utils/Strings'
 import { YourAccountPage } from '../../pages/YourAccountPage'
 import { getCommentsFromAPI } from '../../utils/API'
 
@@ -16,7 +16,7 @@ import { getCommentsFromAPI } from '../../utils/API'
     let shoppingCartPage: ShoppingCartPage
     let orderPage: OrderPage
     let yourAccountPage: YourAccountPage
-
+  
     test.beforeEach(async ({page, context}) =>{
       basePage = new BasePage(page)
       loginPage = new LoginPage(page)
@@ -25,7 +25,7 @@ import { getCommentsFromAPI } from '../../utils/API'
       shoppingCartPage = new ShoppingCartPage(page)
       orderPage = new OrderPage(page)
 
-      const newTab = await context.newPage()
+      const newTab = await context.newPage() 
       yourAccountPage = new YourAccountPage(newTab)
     })
 
@@ -34,7 +34,7 @@ import { getCommentsFromAPI } from '../../utils/API'
 
       await loginPage.setUpStore(standardUserEmail, standardUserPassword)
       await accessoriesPage.clickAccessoriesPage()
-      await accessoriesPage.clickStationery() 
+      await accessoriesPage.clickStationery()
       await accessoriesPage.clickOnFoxNotebook()
       await productDetailsPage.addNotebookToCartGUI('Doted', 5)
       await productDetailsPage.clickContinueShoppingButton()

@@ -16,6 +16,7 @@ import { getCredentialsFromAPI } from '../../utils/API'
 
     test('TS003 - Create User and Update User Data', async () => {
       const credentials = await getCredentialsFromAPI()
+      
       await loginPage.createUserAccountFromAPI(credentials.firstName, credentials.lastName, credentials.email, credentials.password)
       await loginPage.clickSignOut()
       await loginPage.clickSignIn()
