@@ -84,7 +84,7 @@ export class ProductDetailsPage extends BasePage {
     
     async clickAddToCart(){
       this.log('clickAddToCart')
-      this.btn_addToCart.click()
+      await this.btn_addToCart.click()
     }
 
 

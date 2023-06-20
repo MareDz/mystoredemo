@@ -68,8 +68,8 @@ export class ShoppingCartPage extends BasePage {
     this.getValuesFromCheck()   
     this.quantityCheckElementFormat()
 
-    let sumOfLotPrices = await this.sumOfElementsFormat(this.lbl_pricePerLot) 
-    let sumOfItemQuantity = await this.sumOfElementsFormat(this.inp_quantity) 
+    let sumOfLotPrices = await this.getSumOfElementsFormat(this.lbl_pricePerLot) 
+    let sumOfItemQuantity = await this.getSumOfElementsFormat(this.inp_quantity) 
     let referenceValues =  (this.checkShipping + this.checkItemsTotal + this.checkTaxes) 
 
     if(sumOfLotPrices != this.checkItemsTotal || sumOfItemQuantity != this.checkQuantity || referenceValues != this.checkTotalWTaxes){
@@ -81,10 +81,10 @@ export class ShoppingCartPage extends BasePage {
   // Get values from "Check" section, necessary for validation in -> verifyCalculation()
   async getValuesFromCheck(){
     this.log('getValuesFromCheck')
-    this.checkShipping = await this.priceElementFormat(this.lbl_checkShipping)
-    this.checkItemsTotal = await this.priceElementFormat(this.lbl_checkItemsTotal)
-    this.checkTaxes = await this.priceElementFormat(this.lbl_checkTaxes)
-    this.checkTotalWTaxes = await this.priceElementFormat(this.lbl_checkTotalWTaxes)
+    this.checkShipping = await this.getPriceElementFormat(this.lbl_checkShipping)
+    this.checkItemsTotal = await this.getPriceElementFormat(this.lbl_checkItemsTotal)
+    this.checkTaxes = await this.getPriceElementFormat(this.lbl_checkTaxes)
+    this.checkTotalWTaxes = await this.getPriceElementFormat(this.lbl_checkTotalWTaxes)
   }
 
 
