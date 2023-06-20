@@ -5,9 +5,9 @@ const config: PlaywrightTestConfig = {
   testDir: './tests/',
   testMatch: ["**.spec.ts"],  // this is only for demo 
   fullyParallel: !true,
-  retries: process.env.CI ? 1 : 0,
+  retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: process.env.CI ? 'github' : [ ['json', { outputFile: 'report/results.xml' }] ],
+  reporter: process.env.CI ? 'github' : 'line',
   timeout: 130000,     
   reportSlowTests: null,
   use: {

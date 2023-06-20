@@ -150,16 +150,16 @@ async decreseQuantityGUI(quantity: number){
   this.log('decreseQuantityGUI')
   for (let i=0; i<quantity; i++ ){
     await this.btn_quantityMinus.click()
-}
-await this.btn_quantityPlus.click()
+  }
+  await this.btn_quantityPlus.click()
 }
 
 
 // Logic -> Gets the Parent locator, check the type of nth(1) to determine type of all child locators,
 //          depends of type, perform following formating and conversion, put it into array and return 
 //          the sum of all elements
-async sumOfElementsFormat(locator: Locator){
-  this.log('sumOfElementsFormat')
+async getSumOfElementsFormat(locator: Locator){
+  this.log('getSumOfElementsFormat')
 
   let priceArray: number[] = []
   const count = await locator.count()
@@ -188,7 +188,7 @@ async sumOfElementsFormat(locator: Locator){
 
 
 // Remove $ sign from price element and format it to Number
-async priceElementFormat(locator: Locator){
+async getPriceElementFormat(locator: Locator){
   this.log('priceElementFormat')
   let element = await locator.innerText()
   let price = Number(element?.slice(1))
@@ -221,6 +221,7 @@ async clickOnAllElementsOneByOne(locator: Locator){
 
 // Returns the HTML tag name
 async getTagName(locator: Locator): Promise<string> {
+  this.log('getTagName')
     
   const handle = await locator.evaluateHandle((element) => element.tagName);
   const tagName = await handle.jsonValue() as string;

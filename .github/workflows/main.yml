@@ -23,14 +23,11 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npx playwright test
-
       - name: Run Playwright tests and generate test report
-        run: npx playwright test --reporter=list   
+        run: npm run test:smoke
       
       - name: Upload Test Report as Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: test-report
           path: report/

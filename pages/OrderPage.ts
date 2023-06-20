@@ -128,13 +128,12 @@ export class OrderPage extends BasePage {
   }
 
   
-// This section had some loading issues on the front
+// Some flow is changer in the app. Error can popup randomly (Unfortunately, there are no carriers available for your delivery address.) 
+// Update this scneario next
   async shippingMethod(comment: string){
     this.log('shippingMethod')
-    await this.page.waitForTimeout(2000) // This API is a bit slower
 
     if (await this.lbl_shippingSectionTitle.isEnabled()) {
-      await this.page.waitForTimeout(2000)
       await this.inp_shipping.clear()
       await this.inp_shipping.fill(comment)
       await this.btn_continueShipping.click()
