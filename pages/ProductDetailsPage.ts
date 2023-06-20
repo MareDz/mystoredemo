@@ -112,7 +112,7 @@ export class ProductDetailsPage extends BasePage {
       await this.btn_saveCustomization.click()
 
       BasePage.yourCustomizationProductDetails = (await this.lbl_yourCustomization.innerText()).trim()
-      console.log('Product details custom from API-> ' + BasePage.yourCustomizationProductDetails)
+     // console.log('Product details custom from API-> ' + BasePage.yourCustomizationProductDetails)
     }
 
 

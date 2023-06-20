@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:smoke": "npx playwright test tests/SmokeTests/ --config=playwright.config.ts --project=Chromium",
+    "test:smoke": "npx playwright test tests/SmokeTests/ --config=playwright.config.ts --reporter=list --project=Chromium",
 
     "test:ts001": "npx playwright test tests/SmokeTests/VerifyCalculationAndDeleteItems.spec --config=playwright.config.ts --project=Chromium",
     "test:ts002": "npx playwright test tests/SmokeTests/DeleteAdressAndBuyAccessorie.spec --config=playwright.config.ts --project=Chromium",
