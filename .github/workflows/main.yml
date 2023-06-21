@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Manual Tests Trigger
 on:
   push:
     branches: [main]
@@ -20,17 +20,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      - name: Install Playwright and Chrome browser
+        run: |
+          npx playwright install-deps chromium
+          npx playwright install
 
       - name: Run Playwright tests and generate test report
         run: npm run test:smoke
       
-      - name: Upload Test Report as Artifact
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          name: test-report
-          path: report/
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
 
             
 

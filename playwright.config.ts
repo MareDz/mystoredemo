@@ -3,21 +3,24 @@ import { PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = { 
 
   testDir: './tests/',
-  testMatch: ["**.spec.ts"],  // this is only for demo 
+  testMatch: ["**.spec.ts"],  
   fullyParallel: !true,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: process.env.CI ? 'github' : 'line',
+//reporter: process.env.CI ? 'github' : 'line',
+  reporter: process.env.CI ? [['html', { open: 'never' }]] : 'line',
   timeout: 130000,     
   reportSlowTests: null,
+  
   use: {
-    headless: process.env.CI ? true : true,   
-    actionTimeout: 80000,    
+    headless: process.env.CI ? true : true, 
+
+    actionTimeout: 1000 * 50,    
     video: "off",
     screenshot: process.env.CI ? "only-on-failure" : "only-on-failure"
   },
   expect: {
-    timeout: 20000,
+    timeout: 1000 * 50,
   },
   projects: [
     {

@@ -16,8 +16,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      - name: Install Playwright and Chrome browser
+        run: |
+          npx playwright install-deps chromium
+          npx playwright install
 
         #it would be better to link a whole folder with test for daily schedule, but this will be just for demo
       - name: Run VerifyCalculationAndDeleteItems
@@ -40,6 +42,13 @@ jobs:
 
       - name: Run LoginNegative
         run: npm run test:ts008
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
 
 
 
