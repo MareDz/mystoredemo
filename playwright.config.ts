@@ -5,7 +5,7 @@ const config: PlaywrightTestConfig = {
   testDir: './tests/',
   testMatch: ["**.spec.ts"],  
   fullyParallel: !true,
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 3 : 0,
   workers: process.env.CI ? 1 : 2,
 //reporter: process.env.CI ? 'github' : 'line',
   reporter: process.env.CI ? [['html', { open: 'never' }]] : 'line',

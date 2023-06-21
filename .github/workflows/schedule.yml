@@ -1,4 +1,4 @@
-name: Playwright Schedules Tests
+name: Scheduled Tests
 on:
   schedule:
     - cron: '0 0 * * *'
