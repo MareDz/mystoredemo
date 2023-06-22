@@ -13,9 +13,8 @@
     "test:ts005": "npx playwright test tests/SmokeTests/NotEnoughProductsInStock.spec --config=playwright.config.ts --project=Chromium",
     "test:ts006": "npx playwright test tests/SmokeTests/NumberOfDisplayedArticles.spec --config=playwright.config.ts --project=Chromium",
     "test:ts007": "npx playwright test tests/SmokeTests/ProductCustomization.spec --config=playwright.config.ts --project=Chromium",
-    "test:ts008": "npx playwright test tests/SmokeTests/LoginNegative.spec --config=playwright.config.ts--project=Chromium",
+    "test:ts008": "npx playwright test tests/SmokeTests/LoginNegative.spec --config=playwright.config.ts--project=Chromium"
 
-    "test:smoke-html": "npx playwright test tests/SmokeTests/ --config=playwright.config.ts --project=Chromium"
   },
   "author": "",
   "license": "ISC",
