@@ -21,28 +21,9 @@ jobs:
           npx playwright install-deps chromium
           npx playwright install
 
-        #it would be better to link a whole folder with test for daily schedule, but this will be just for demo
-      - name: Run VerifyCalculationAndDeleteItems
-        run: npm run test:ts001
-
-      - name: Run DeleteAdressAndBuyAccessorie
-        run: npm run test:ts002
-
-      - name: Run PreviewAndZoom
-        run: npm run test:ts004
-
-      - name: Run NotEnoughProductsInStock
-        run: npm run test:ts005
-
-      - name: Run NumberOfDisplayedArticles
-        run: npm run test:ts006
-
-      - name: Run ProductCustomization
-        run: npm run test:ts007
-
-      - name: Run LoginNegative
-        run: npm run test:ts008
-
+      - name: Run Playwright tests and generate test report
+        run: npm run test:smoke
+      
       - uses: actions/upload-artifact@v3
         if: always()
         with:
