@@ -43,7 +43,7 @@
 - For CI/CD we are using [Github Actions](https://docs.github.com/en/actions)
 - .YML files are located in [github/workflows](https://github.com/MareDz/mystoredemo/tree/main/.github/workflows)
 - File [main.yml](https://github.com/MareDz/mystoredemo/blob/main/.github/workflows/main.yml) is configuration file for manual triggering in Pipeline. Same file will be automatically executed on every pull and push request.
-- File [schedule.yml](https://github.com/MareDz/mystoredemo/blob/main/.github/workflows/schedule.yml) is configuration file for scheduling jobs. By this config. jobs are going to be triggered every day at midnight. [TS003 - Create User and Update User Data](https://github.com/MareDz/mystoredemo/blob/main/tests/SmokeTests/CreateUserAndUpdateUserData.spec.ts) is exluded of that file on purpose because I don’t want to fill limited storage on demo site database. 
+- File [schedule.yml](https://github.com/MareDz/mystoredemo/blob/main/.github/workflows/schedule.yml) is configuration file for scheduling jobs. By this config. jobs are going to be triggered every day at midnight.
 - All ‘workflows runs’ are available in my [GitHub Action](https://github.com/MareDz/mystoredemo/actions) section
 
 - To run desired test, please check *'scripts'* in [package.json](https://github.com/MareDz/mystoredemo/blob/main/package.json) file, (e.g. to run ts:001 execute following comand `npm run test:ts001`)
