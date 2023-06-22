@@ -4,7 +4,7 @@
 - This project contains automation tests for [My Store](http://teststore.automationtesting.co.uk/) application.
 - Automation is done in TypeScript with Playwright.
 
-- Focus of this project is to demonstrate my ***coding style, usage of POM, OOP, API, CI/CD, Static Methods, Variable Naming Conventions and Organization of Test Cases***.
+- Focus of this project is to demonstrate my ***coding style, usage of POM, OOP, API, CI/CD, Static Methods, Multi Tabs, Variable Naming Conventions, Code Organization and Organization of Test Cases***.
 
 
 
