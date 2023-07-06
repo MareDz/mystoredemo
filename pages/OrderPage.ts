@@ -132,9 +132,10 @@ export class OrderPage extends BasePage {
 // Update this scneario next
   async shippingMethod(comment: string){
     this.log('shippingMethod')
+    this.page.waitForTimeout(2000) // Broken section
 
     if (await this.lbl_shippingSectionTitle.isEnabled()) {
-      await this.inp_shipping.clear()
+      await this.inp_shipping.clear({ timeout: 60000 })
       await this.inp_shipping.fill(comment)
       await this.btn_continueShipping.click()
     } 
