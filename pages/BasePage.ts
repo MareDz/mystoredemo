@@ -72,18 +72,18 @@ log(text: string){
 async openApp(){
   this.log('openApp')
   await this.page.goto(urlMyStore)
- }
+}
 
 
 async clickSignIn(){
   this.log('clickSignIn')
   await this.btn_signIn.click()
- }
+}
 
 
 async clickSignOut(){ 
   this.log('clickSignOut')
-  await this.page.waitForTimeout(2500) // unstable page
+  await this.page.waitForTimeout(3500) // unstable page
   await this.btn_signOut.click()
 }
 
@@ -99,7 +99,7 @@ async clickUserAccount(){
   await this.btn_accesories.click()
   await expect(this.page).toHaveTitle(accessoriesTitle)
   await expect(this.lbl_accessoriesCaption).toContainText(accessoriesCaption)
- }
+}
 
  
  async clickHomeAccessoriesHover(){
@@ -139,11 +139,11 @@ async clickUserAccount(){
 
  async increaseQuantityGUI(quantity: number){
   this.log('increaseQuantityGUI')
-    for (let i=0; i<quantity; i++ ){
-      await this.btn_quantityPlus.click()
-    }
-    await this.btn_quantityMinus.click()
+  for (let i=0; i<quantity; i++ ){
+    await this.btn_quantityPlus.click()
   }
+  await this.btn_quantityMinus.click()
+}
 
 
 async decreseQuantityGUI(quantity: number){
@@ -176,9 +176,9 @@ async getSumOfElementsFormat(locator: Locator){
       for(let i=0; i < count; i++){
       let element = await locator.nth(i).inputValue()
       this.toNumber = Number(element)
-      priceArray.push(this.toNumber);
+      priceArray.push(this.toNumber)
     }
-    }
+  }
 
   const sum = Number(priceArray.reduce((a, b) => a + b, 0).toFixed(2))
   console.log('Sum Of Elements is: ' + sum)
@@ -229,7 +229,6 @@ async getTagName(locator: Locator): Promise<string> {
 
   return tagName;
 }
-
 
 
 // Verifies if the product custom text is the same on Product page where user entered it and on Shopping cart page to check if it's accepted

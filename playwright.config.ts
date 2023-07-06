@@ -7,7 +7,9 @@ const config: PlaywrightTestConfig = {
   fullyParallel: !true,
   retries: process.env.CI ? 3 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: process.env.CI ? [['html', { open: 'never' }]] : 'line',
+
+  reporter: process.env.CI ? [['html', { open: 'never' }], ['json', {outputFile: "playwright-report/results.json"}]] : 'line',
+  
   timeout: 130000,     
   reportSlowTests: null,
   

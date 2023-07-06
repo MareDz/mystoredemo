@@ -21,7 +21,7 @@ export class AccessoriesPage extends BasePage {
   constructor(page: Page){
     super(page)
     this.page = page
-    this.btn_closePreview = page.locator("[aria-hidden]")
+    this.btn_closePreview = page.locator(".close > span")
     this.lbl_stationery = page.locator("//ul[@class='category-sub-menu']/li[1]")
     this.lbl_homeAccessories = page.locator("//ul[@class='category-sub-menu']/li[2]")
     this.lbl_accessoriesCaption = page.locator(".h1") 
@@ -78,6 +78,7 @@ export class AccessoriesPage extends BasePage {
   async previewMug(){
     this.log('previwMug')
     await this.img_adventureMug.hover()
+    await this.page.waitForTimeout(2000)
     await this.img_adventureMugPreview.click()
     await this.btn_closePreview.click()
     await this.page.reload()
