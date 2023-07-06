@@ -42,8 +42,14 @@
 
 - For CI/CD we are using [Github Actions](https://docs.github.com/en/actions)
 - .YML files are located in [github/workflows](https://github.com/MareDz/mystoredemo/tree/main/.github/workflows)
-- File [main.yml](https://github.com/MareDz/mystoredemo/blob/main/.github/workflows/main.yml) is configuration file for manual triggering in Pipeline. Same file will be automatically executed on every pull and push request.
+- File [main.yml](https://github.com/MareDz/mystoredemo/blob/main/.github/workflows/main.yml) is configuration file for manual triggering in Pipeline. Same file will be automatically executed on every pull  request.
 - File [schedule.yml](https://github.com/MareDz/mystoredemo/blob/main/.github/workflows/schedule.yml) is configuration file for scheduling jobs. By this config. jobs are going to be triggered every day at midnight.
 - All ‘workflows runs’ are available in my [GitHub Action](https://github.com/MareDz/mystoredemo/actions) section
+- Whenever test Is executed in pipeline, message is sent to Slack channel, where we can see the status of the previous run, and open a HTML report
+
+<img width="488" alt="Screenshot 2023-07-06 at 15 20 51" src="https://github.com/MareDz/mystoredemo/assets/123815122/6f685cc5-89c6-4aba-8218-dcbcbd40bd49"> 
+<img width="559" alt="Screenshot 2023-07-06 at 15 21 36" src="https://github.com/MareDz/mystoredemo/assets/123815122/388aafa3-d905-4b7f-a295-b4eefae56b6d">
+
+
 
 - To run desired test, please check *'scripts'* in [package.json](https://github.com/MareDz/mystoredemo/blob/main/package.json) file, (e.g. to run ts:001 execute following comand `npm run test:ts001`)
